@@ -1,11 +1,11 @@
 HTML
 
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>极寿生命科学研究院 | Longevity & Anti-Aging Research Hub</title>
+    <title>BioSpan 极寿生命科学研究院 | Longevity & Anti-Aging Research Hub</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -22,11 +22,11 @@ HTML
 <body class="bg-slate-950 text-slate-100 min-h-screen">
 
     <!-- 导航栏 -->
-    <nav class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
+    <nav class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-3">
                 <i class="fa-solid fa-dna text-emerald-400 text-2xl"></i>
-                <span class="text-xl font-bold tracking-wider text-white">LONGEVITY<span class="text-emerald-400">LAB</span></span>
+                <span class="text-xl font-bold tracking-wider text-white">BIO<span class="text-emerald-400">SPAN</span></span>
             </div>
             <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
                 <a href="#mechanisms" class="hover:text-emerald-400 transition">衰老机制</a>
@@ -35,9 +35,9 @@ HTML
                 <a href="#calculator" class="hover:text-emerald-400 transition">生物年龄测算</a>
             </div>
             <div>
-                <a href="#subscribe" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold px-4 py-2 rounded-lg text-sm transition">
+                <button onclick="openModal()" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold px-4 py-2 rounded-lg text-sm transition shadow-lg shadow-emerald-500/20">
                     订阅科研简报
-                </a>
+                </button>
             </div>
         </div>
     </nav>
@@ -93,7 +93,7 @@ HTML
     <section id="mechanisms" class="max-w-7xl mx-auto px-4 py-20">
         <div class="text-center max-w-2xl mx-auto mb-12">
             <h2 class="text-3xl font-bold text-white">衰老的 12 大生物学标志</h2>
-            <p class="text-slate-400 mt-2 text-sm">衰老并非单一维度的退化，而是多重分子与细胞通路的协同衰败。</p>
+            <p class="text-slate-400 mt-2 text-sm">衰老并非单一维度的退化，而是多重分子与细胞通路的协同衰退。</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition">
@@ -101,21 +101,21 @@ HTML
                     <i class="fa-solid fa-atom"></i>
                 </div>
                 <h3 class="text-lg font-semibold text-white mb-2">基因组不稳定性与端粒损耗</h3>
-                <p class="text-slate-400 text-sm">DNA损伤的累积与端粒随细胞分裂的进行性缩短，直接限制细胞增殖极限并引发凋亡。</p>
+                <p class="text-slate-400 text-sm leading-relaxed">DNA损伤的累积与端粒随细胞分裂的进行性缩短，直接限制细胞增殖极限并引发凋亡。</p>
             </div>
             <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition">
                 <div class="w-10 h-10 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center mb-4">
                     <i class="fa-solid fa-bolt"></i>
                 </div>
                 <h3 class="text-lg font-semibold text-white mb-2">线粒体功能障碍与能量危机</h3>
-                <p class="text-slate-400 text-sm">呼吸链效率下降导致活性氧（ROS）增加及 ATP 生成减少，是细胞衰老和代谢紊乱的主因。</p>
+                <p class="text-slate-400 text-sm leading-relaxed">呼吸链效率下降导致活性氧（ROS）增加及 ATP 生成减少，是细胞衰老和代谢紊乱的主因。</p>
             </div>
             <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition">
                 <div class="w-10 h-10 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center mb-4">
                     <i class="fa-solid fa-biohazard"></i>
                 </div>
                 <h3 class="text-lg font-semibold text-white mb-2">细胞衰老与 SASP 慢性炎症</h3>
-                <p class="text-slate-400 text-sm">“僵尸细胞”停止分裂却分泌大量促炎因子（SASP），毒害周围健康组织并加速机体衰老。</p>
+                <p class="text-slate-400 text-sm leading-relaxed">“僵尸细胞”停止分裂却分泌大量促炎因子（SASP），毒害周围健康组织并加速机体衰老。</p>
             </div>
         </div>
     </section>
@@ -171,15 +171,15 @@ HTML
                             <td class="px-6 py-4 font-semibold text-white">二甲双胍 (Metformin)</td>
                             <td class="px-6 py-4"><span class="bg-teal-950 text-teal-300 px-2 py-0.5 rounded text-xs">AMPK 激活 / 线粒体 Complex I</span></td>
                             <td class="px-6 py-4 text-emerald-400 font-medium">+5% (部分模型)</td>
-                            <td class="px-6 py-4 text-emerald-400">Phase III 筹备 (TAME 试验)</td>
-                            <td class="px-6 py-4 text-slate-400 text-xs">降低全身炎症，改善胰岛素敏感性，降低多种老年病发病率</td>
+                            <td class="px-6 py-4 text-emerald-400">Phase III (TAME 试验筹备)</td>
+                            <td class="px-6 py-4 text-slate-400 text-xs">降低全身慢性炎症，延缓多种老年共病发生</td>
                         </tr>
                         <tr class="hover:bg-slate-800/50">
                             <td class="px-6 py-4 font-semibold text-white">Yamanaka 因子局部重编程</td>
                             <td class="px-6 py-4"><span class="bg-indigo-950 text-indigo-300 px-2 py-0.5 rounded text-xs">表观遗传时钟重置</span></td>
                             <td class="px-6 py-4 text-emerald-400 font-medium">视神经修复、寿命延长</td>
                             <td class="px-6 py-4 text-slate-500">临床前阶段 (Preclinical)</td>
-                            <td class="px-6 py-4 text-slate-400 text-xs">重置细胞表观遗传年龄至年轻状态而不丢失细胞分化特征</td>
+                            <td class="px-6 py-4 text-slate-400 text-xs">重置细胞表观遗传年龄至年轻状态</td>
                         </tr>
                     </tbody>
                 </table>
@@ -187,7 +187,89 @@ HTML
         </div>
     </section>
 
-    <!-- 模块三：简易生物学年龄与健康寿命测算小工具 -->
+    <!-- 模块三：临床前沿动态 (Clinical Trials) -->
+    <section id="trials" class="max-w-7xl mx-auto px-4 py-20">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 class="text-3xl font-bold text-white">全球抗衰老临床试验前沿</h2>
+            <p class="text-slate-400 mt-2 text-sm">追踪全球顶尖科研机构与医院正在进行的人体干预临床项目。</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- 临床项目 1 -->
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/40 transition flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">Phase II 临床</span>
+                        <span class="text-xs text-slate-500">NCT04488601</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">PEARL 试验：低剂量雷帕霉素的人体安全性与延寿评估</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        全球首个针对健康成年人长期服用小剂量雷帕霉素的大规模双盲对照临床试验，主要评估其对骨密度、肌肉质量、免疫系统与表观遗传时钟的影响。
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                    <span><i class="fa-solid fa-hospital mr-1.5 text-emerald-400"></i> 主导机构：AgelessRx & 顶尖医学院</span>
+                    <span class="text-emerald-400 font-medium">数据分析中</span>
+                </div>
+            </div>
+
+            <!-- 临床项目 2 -->
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/40 transition flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">里程碑项目</span>
+                        <span class="text-xs text-slate-500">AFAR 倡议</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">TAME 试验：二甲双胍靶向延缓衰老综合征</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        由美国衰老研究联合会 (AFAR) 领衔，旨在验证二甲双胍能否同时推迟心血管病、癌症、认知衰退等多种老年共病的发生，推动 FDA 正式将衰老定义为可治疗的适应症。
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                    <span><i class="fa-solid fa-hospital mr-1.5 text-emerald-400"></i> 主导机构：Albert Einstein College of Medicine</span>
+                    <span class="text-cyan-400 font-medium">全美多中心</span>
+                </div>
+            </div>
+
+            <!-- 临床项目 3 -->
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/40 transition flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">Senolytics 清除剂</span>
+                        <span class="text-xs text-slate-500">Mayo Clinic</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">达沙替尼 + 槲皮素清除中枢神经系统衰老细胞</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        评估 Senolytics 间歇性给药清除大脑内促炎衰老细胞的能力，探索其在早期认知障碍与阿尔茨海默病患者中恢复神经可塑性的潜力。
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                    <span><i class="fa-solid fa-hospital mr-1.5 text-emerald-400"></i> 主导机构：梅奥诊所 (Mayo Clinic)</span>
+                    <span class="text-emerald-400 font-medium">进行中</span>
+                </div>
+            </div>
+
+            <!-- 临床项目 4 -->
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/40 transition flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">血浆置换 / TPE</span>
+                        <span class="text-xs text-slate-500">Conboy Lab</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">治疗性血浆稀释置换（Neutral Blood Exchange）</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        通过置换血液中的老化血浆，稀释体内的促衰老抑制蛋白与炎症因子，观察干细胞微环境的激活与多器官组织机能重获年轻化。
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                    <span><i class="fa-solid fa-hospital mr-1.5 text-emerald-400"></i> 主导机构：加州大学伯克利分校 (UC Berkeley)</span>
+                    <span class="text-amber-400 font-medium">人体试验扩展</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 模块四：简易生物学年龄与健康寿命测算小工具 -->
     <section id="calculator" class="max-w-4xl mx-auto px-4 py-20">
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-2xl">
             <div class="text-center mb-8">
@@ -226,7 +308,7 @@ HTML
                 </div>
             </div>
 
-            <button onclick="calculateBioAge()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:opacity-90 text-slate-950 font-bold py-3 rounded-lg transition">
+            <button onclick="calculateBioAge()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:opacity-90 text-slate-950 font-bold py-3 rounded-lg transition shadow-lg shadow-emerald-500/20">
                 计算预估生物学年龄
             </button>
 
@@ -250,12 +332,48 @@ HTML
             <p class="max-w-3xl mx-auto leading-relaxed text-slate-600">
                 <strong>学术与医疗免责声明：</strong>本网站刊载的所有衰老机制、小分子药物、靶点及临床试验信息仅供科学普及、学术交流与生物学研究使用，不构成任何医疗建议、诊断或用药处方。涉及任何处方药或临床干预，请务必咨询专业医疗人员。
             </p>
-            <p>© 2026 极寿生命科学研究网络 (LongevityLab). 保留所有权利。</p>
+            <p>© 2026 BioSpan 极寿生命科学研究网络. 保留所有权利。</p>
         </div>
     </footer>
 
+    <!-- 订阅弹窗组件 (Modal) -->
+    <div id="subscribeModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden px-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            
+            <div class="text-center space-y-3">
+                <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-xl">
+                    <i class="fa-regular fa-envelope-open"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">订阅《衰老与长寿前沿速递》</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    每周精选 Nature/Cell 衰老生物学重磅文献、全球抗衰化合物临床进度及延寿实践指南。
+                </p>
+            </div>
+
+            <div id="modalForm" class="mt-6 space-y-4">
+                <div>
+                    <label class="block text-xs text-slate-300 mb-1">您的电子邮箱</label>
+                    <input id="subEmail" type="email" placeholder="example@domain.com" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500">
+                </div>
+                <button onclick="submitSubscription()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-2.5 rounded-lg text-sm transition">
+                    立即免费订阅
+                </button>
+            </div>
+
+            <div id="modalSuccess" class="mt-6 text-center space-y-2 hidden">
+                <div class="text-emerald-400 text-sm font-semibold">🎉 订阅成功！</div>
+                <p class="text-slate-400 text-xs">欢迎加入长寿科研社区，首期前沿周报已准备就绪。</p>
+                <button onclick="closeModal()" class="mt-3 text-xs text-slate-400 hover:text-white underline">关闭窗口</button>
+            </div>
+        </div>
+    </div>
+
     <!-- 交互脚本 -->
     <script>
+        // 生物年龄计算
         function calculateBioAge() {
             const actualAge = parseFloat(document.getElementById('actualAge').value);
             const exercise = parseFloat(document.getElementById('exercise').value);
@@ -284,6 +402,26 @@ HTML
             }
 
             resultBox.classList.remove('hidden');
+        }
+
+        // 弹窗控制
+        function openModal() {
+            document.getElementById('subscribeModal').classList.remove('hidden');
+            document.getElementById('modalForm').classList.remove('hidden');
+            document.getElementById('modalSuccess').classList.add('hidden');
+        }
+        function closeModal() {
+            document.getElementById('subscribeModal').classList.add('hidden');
+        }
+        function submitSubscription() {
+            const email = document.getElementById('subEmail').value;
+            if (!email || !email.includes('@')) {
+                alert('请输入有效的电子邮箱地址！');
+                return;
+            }
+            document.getElementById('modalForm').classList.add('hidden');
+            document.getElementById('modalSuccess').classList.remove('hidden');
+            document.getElementById('subEmail').value = '';
         }
     </script>
 </body>
