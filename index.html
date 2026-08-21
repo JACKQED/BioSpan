@@ -399,16 +399,32 @@
         function closeModal() {
             document.getElementById('subscribeModal').classList.add('hidden');
         }
-        function submitSubscription() {
-            const email = document.getElementById('subEmail').value;
-            if (!email || !email.includes('@')) {
-                alert('请输入有效的电子邮箱地址！');
-                return;
-            }
-            document.getElementById('modalForm').classList.add('hidden');
-            document.getElementById('modalSuccess').classList.remove('hidden');
-            document.getElementById('subEmail').value = '';
+        async function submitSubscription(e) {
+        if (e) e.preventDefault();
+        const emailInput = document.getElementById('subEmail');
+        const email = emailInput.value.trim();
+
+        if (!email || !email.includes('@')) {
+            alert('请输入有效的电子邮箱地址！');
+            return;
         }
+
+        // 切换显示成功提示并清空输入框
+        document.getElementById('modalForm').classList.add('hidden');
+        document.getElementById('modalSuccess').classList.remove('hidden');
+        emailInput.value = '';
+
+        // 异步提交邮箱数据
+        try {
+            await fetch('https://formspree.io/f/xbjnqovk', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email, site: 'BioSpan Newsletter' })
+            });
+        } catch (err) {
+            console.log('订阅已在本地确认');
+        }
+    }
     </script>
 </body>
 </html>
