@@ -1,5 +1,3 @@
-Python
-
 import os
 import re
 import urllib.parse
