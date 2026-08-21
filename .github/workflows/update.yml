@@ -1,6 +1,6 @@
 name: Auto Update BioSpan Site
 
-"on":
+on:
   workflow_dispatch:
   schedule:
     - cron: '0 0 * * *'
@@ -18,7 +18,10 @@ jobs:
         with:
           python-version: '3.11'
 
-      - run: python fetch_news.py
+      - name: Run update and send newsletter
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: python fetch_news.py
 
       - run: |
           git config --global user.name "github-actions[bot]"
