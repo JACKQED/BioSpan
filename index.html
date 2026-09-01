@@ -4,62 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BioSpan 极寿生命科学研究院 | Longevity & Anti-Aging Research Hub</title>
-    <!-- Tailwind CSS CDN -->
+    <meta name="description" content="汇集全球衰老生物学（Geroscience）、延寿小分子化合物、基因疗法与细胞重编程的学术研究与临床试验数据追踪平台。">
+    <meta property="og:title" content="BioSpan 极寿生命科学研究院">
+    <meta property="og:description" content="探索寿命极限，破译衰老与长寿的分子密码。">
+    <meta property="og:type" content="website">
+    
+    <!-- Tailwind CSS & Font Awesome -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
         .gradient-bg {
             background: radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.15), transparent 60%),
                         radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.15), transparent 60%),
                         #0f172a;
         }
+        .tab-active {
+            background-color: rgb(16 185 129 / 0.15);
+            border-color: rgb(16 185 129 / 0.5);
+            color: rgb(52 211 153);
+        }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen">
+<body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-emerald-500 selection:text-slate-950">
 
     <!-- 导航栏 -->
     <nav class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <i class="fa-solid fa-dna text-emerald-400 text-2xl"></i>
-                <span class="text-xl font-bold tracking-wider text-white">BIO<span class="text-emerald-400">SPAN</span></span>
-            </div>
+            <a href="#" class="flex items-center space-x-3 group">
+                <i class="fa-solid fa-dna text-emerald-400 text-2xl group-hover:rotate-45 transition duration-300"></i>
+                <span class="text-xl font-extrabold tracking-wider text-white">BIO<span class="text-emerald-400">SPAN</span></span>
+            </a>
+            
             <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
                 <a href="#mechanisms" class="hover:text-emerald-400 transition">衰老机制</a>
                 <a href="#compounds" class="hover:text-emerald-400 transition">抗衰分子库</a>
                 <a href="#trials" class="hover:text-emerald-400 transition">临床前沿</a>
                 <a href="#calculator" class="hover:text-emerald-400 transition">生物年龄测算</a>
             </div>
-            <div>
-                <button onclick="openModal()" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold px-4 py-2 rounded-lg text-sm transition shadow-lg shadow-emerald-500/20">
-                    订阅科研简报
+
+            <div class="flex items-center space-x-3">
+                <button onclick="openModal()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-4 py-2 rounded-lg text-sm transition shadow-lg shadow-emerald-500/20">
+                    <i class="fa-regular fa-envelope mr-1.5 hidden sm:inline"></i>订阅简报
+                </button>
+                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden text-slate-400 hover:text-white p-2 text-xl">
+                    <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
+        </div>
+
+        <!-- 移动端折叠菜单 -->
+        <div id="mobileMenu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2 bg-slate-900 border-b border-slate-800 text-sm font-medium">
+            <a href="#mechanisms" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-emerald-400">衰老机制 (12 Hallmarks)</a>
+            <a href="#compounds" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-emerald-400">抗衰分子库</a>
+            <a href="#trials" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-emerald-400">临床前沿</a>
+            <a href="#calculator" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-emerald-400">生物年龄测算</a>
         </div>
     </nav>
 
     <!-- Hero 区域 -->
-    <header class="gradient-bg py-24 px-4 text-center relative overflow-hidden">
+    <header class="gradient-bg py-20 sm:py-28 px-4 text-center relative overflow-hidden">
         <div class="max-w-4xl mx-auto space-y-6">
             <div class="inline-flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full text-emerald-400 text-xs font-semibold uppercase tracking-wider">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>严谨 · 实证 · 衰老生物学</span>
+                <span>严谨 · 实证 · 衰老生物学 (Geroscience)</span>
             </div>
             <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
                 探索寿命极限 <br><span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">破译衰老与长寿的分子密码</span>
             </h1>
-            <p class="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
-                汇集全球衰老生物学（Geroscience）、延寿小分子化合物、基因疗法与细胞重编程的最新学术研究与临床试验数据。
+            <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+                汇集全球衰老生物学前沿机理、延寿小分子化合物、局部细胞重编程与最新同行评审临床研究数据。
             </p>
             <div class="flex flex-wrap justify-center gap-4 pt-4">
-                <a href="#compounds" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold px-6 py-3 rounded-lg transition flex items-center space-x-2">
+                <a href="#compounds" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-6 py-3 rounded-lg transition flex items-center space-x-2 shadow-lg shadow-emerald-500/20">
                     <i class="fa-solid fa-flask"></i>
                     <span>查阅化合物数据库</span>
                 </a>
-                <a href="#calculator" class="bg-slate-800 hover:bg-slate-700 text-white font-medium px-6 py-3 rounded-lg border border-slate-700 transition">
-                    测试健康寿命评分
+                <a href="#calculator" class="bg-slate-800 hover:bg-slate-700 text-white font-medium px-6 py-3 rounded-lg border border-slate-700 transition flex items-center space-x-2">
+                    <i class="fa-solid fa-calculator text-slate-400"></i>
+                    <span>测试生物年龄</span>
                 </a>
             </div>
         </div>
@@ -68,52 +92,148 @@
     <!-- 核心统计指标 -->
     <section class="max-w-7xl mx-auto px-4 -mt-10">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-xl backdrop-blur text-center">
-                <div class="text-3xl font-bold text-emerald-400">12</div>
-                <div class="text-xs text-slate-400 mt-1">核心衰老生物标志</div>
+            <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-xl backdrop-blur text-center shadow-lg">
+                <div class="text-3xl font-extrabold text-emerald-400">12</div>
+                <div class="text-xs text-slate-400 mt-1 font-medium">核心衰老生物标志</div>
             </div>
-            <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-xl backdrop-blur text-center">
-                <div class="text-3xl font-bold text-teal-400">50+</div>
-                <div class="text-xs text-slate-400 mt-1">在研延寿分子靶点</div>
+            <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-xl backdrop-blur text-center shadow-lg">
+                <div class="text-3xl font-extrabold text-teal-400">50+</div>
+                <div class="text-xs text-slate-400 mt-1 font-medium">在研延寿分子靶点</div>
             </div>
-            <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-xl backdrop-blur text-center">
-                <div class="text-3xl font-bold text-cyan-400">300+</div>
-                <div class="text-xs text-slate-400 mt-1">追踪中临床试验</div>
+            <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-xl backdrop-blur text-center shadow-lg">
+                <div class="text-3xl font-extrabold text-cyan-400">300+</div>
+                <div class="text-xs text-slate-400 mt-1 font-medium">追踪中临床试验</div>
             </div>
-            <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-xl backdrop-blur text-center">
-                <div class="text-3xl font-bold text-purple-400">100%</div>
-                <div class="text-xs text-slate-400 mt-1">同行评审文献背书</div>
+            <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-xl backdrop-blur text-center shadow-lg">
+                <div class="text-3xl font-extrabold text-purple-400">100%</div>
+                <div class="text-xs text-slate-400 mt-1 font-medium">同行评审文献背书</div>
             </div>
         </div>
     </section>
 
-    <!-- 模块一：衰老的核心生物学机制 (Hallmarks of Aging) -->
+    <!-- 模块一：衰老的 12 大生物学标志 -->
     <section id="mechanisms" class="max-w-7xl mx-auto px-4 py-20">
-        <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="text-center max-w-2xl mx-auto mb-10">
             <h2 class="text-3xl font-bold text-white">衰老的 12 大生物学标志</h2>
-            <p class="text-slate-400 mt-2 text-sm">衰老并非单一维度的退化，而是多重分子与细胞通路的协同衰退。</p>
+            <p class="text-slate-400 mt-2 text-sm">基于 <em>Cell</em> 权威衰老框架，衰老是多重分子与细胞通路的协同衰退。</p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition">
-                <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-atom"></i>
+
+        <!-- 分类切换 Tabs -->
+        <div class="flex flex-wrap justify-center gap-2 mb-8 text-xs font-semibold">
+            <button onclick="filterHallmarks('all')" id="tab-all" class="hallmark-tab tab-active px-4 py-2 rounded-lg border border-slate-700 transition">全部展示 (12)</button>
+            <button onclick="filterHallmarks('primary')" id="tab-primary" class="hallmark-tab px-4 py-2 rounded-lg border border-slate-800 bg-slate-900 text-slate-400 hover:text-white transition">原发性损伤 (5)</button>
+            <button onclick="filterHallmarks('antagonistic')" id="tab-antagonistic" class="hallmark-tab px-4 py-2 rounded-lg border border-slate-800 bg-slate-900 text-slate-400 hover:text-white transition">拮抗性代偿 (3)</button>
+            <button onclick="filterHallmarks('integrative')" id="tab-integrative" class="hallmark-tab px-4 py-2 rounded-lg border border-slate-800 bg-slate-900 text-slate-400 hover:text-white transition">整合性功能衰退 (4)</button>
+        </div>
+
+        <div id="hallmarksGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- 1 -->
+            <div class="hallmark-card primary bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg"><i class="fa-solid fa-dna"></i></div>
+                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">原发性标志</span>
                 </div>
-                <h3 class="text-lg font-semibold text-white mb-2">基因组不稳定性与端粒损耗</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">DNA损伤的累积与端粒随细胞分裂的进行性缩短，直接限制细胞增殖极限并引发凋亡。</p>
+                <h3 class="text-base font-bold text-white mb-2">基因组不稳定性 (Genomic Instability)</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">内源性及外源性损伤导致 DNA 突变、染色体异常与断裂持续累积，破坏转录调控与细胞稳态。</p>
             </div>
-            <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition">
-                <div class="w-10 h-10 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-bolt"></i>
+            <!-- 2 -->
+            <div class="hallmark-card primary bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg"><i class="fa-solid fa-hourglass-half"></i></div>
+                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">原发性标志</span>
                 </div>
-                <h3 class="text-lg font-semibold text-white mb-2">线粒体功能障碍与能量危机</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">呼吸链效率下降导致活性氧（ROS）增加及 ATP 生成减少，是细胞衰老和代谢紊乱的主因。</p>
+                <h3 class="text-base font-bold text-white mb-2">端粒损耗 (Telomere Attrition)</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">染色体末端保护帽随每次有丝分裂而进行性缩短，触发复制性衰老并限制细胞代际增殖极限。</p>
             </div>
-            <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition">
-                <div class="w-10 h-10 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center mb-4">
-                    <i class="fa-solid fa-biohazard"></i>
+            <!-- 3 -->
+            <div class="hallmark-card primary bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg"><i class="fa-solid fa-fingerprint"></i></div>
+                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">原发性标志</span>
                 </div>
-                <h3 class="text-lg font-semibold text-white mb-2">细胞衰老与 SASP 慢性炎症</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">“僵尸细胞”停止分裂却分泌大量促炎因子（SASP），毒害周围健康组织并加速机体衰老。</p>
+                <h3 class="text-base font-bold text-white mb-2">表观遗传学改变 (Epigenetic Alterations)</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">DNA 甲基化格局漂移与组蛋白修饰紊乱导致细胞身份丢失，是现代表观遗传时钟（Horvath Clock）的核心测算基础。</p>
+            </div>
+            <!-- 4 -->
+            <div class="hallmark-card primary bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg"><i class="fa-solid fa-cubes-stacked"></i></div>
+                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">原发性标志</span>
+                </div>
+                <h3 class="text-base font-bold text-white mb-2">蛋白质稳态丧失 (Loss of Proteostasis)</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">伴侣蛋白与泛素-蛋白酶体系统活性下降，导致错误折叠蛋白与有毒聚集体在细胞内病理性沉积。</p>
+            </div>
+            <!-- 5 -->
+            <div class="hallmark-card primary bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg"><i class="fa-solid fa-recycle"></i></div>
+                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">原发性标志</span>
+                </div>
+                <h3 class="text-base font-bold text-white mb-2">宏自噬受损 (Disabled Macroautophagy)</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">自噬小体清除受损细胞器及蛋白质大分子的功能受阻，加剧胞内垃圾堆积与代谢毒性。</p>
+            </div>
+            <!-- 6 -->
+            <div class="hallmark-card antagonistic bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-teal-500/50 transition">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center text-lg"><i class="fa-solid fa-gauge-high"></i></div>
+                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-teal-500/10 text-teal-400 border border-teal-500/20">拮抗性代偿</span>
+                </div>
+                <h3 class="text-base font-bold text-white mb-2">营养感知失调 (Deregulated Nutrient-Sensing)</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">mTOR 通路持续过载激活、AMPK 与 Sirtuins 长寿蛋白活性衰退，阻断细胞修复机制。</p>
+            </div>
+            <!-- 7 -->
+            <div class="hallmark-card antagonistic bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-teal-500/50 transition">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center text-lg"><i class="fa-solid fa-bolt"></i></div>
+                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-teal-500/10 text-teal-400 border border-teal-500/20">拮抗性代偿</span>
+                </div>
+                <h3 class="text-base font-bold text-white mb-2">线粒体功能障碍 (Mitochondrial Dysfunction)</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">电子传递链效率下降引发 ATP 匮乏，同时过量泄漏活性氧（ROS）诱发线粒体自噬障碍与能量危机。</p>
+            </div>
+            <!-- 8 -->
+            <div class="hallmark-card antagonistic bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-teal-500/50 transition">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center text-lg"><i class="fa-solid fa-biohazard"></i></div>
+                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-teal-500/10 text-teal-400 border border-teal-500/20">拮抗性代偿</span>
+                </div>
+                <h3 class="text-base font-bold text-white mb-2">细胞衰老 (Cellular Senescence)</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">“僵尸细胞”永久停滞分裂却抗拒凋亡，持续分泌高毒性促炎介质（SASP），毒害周围健康细胞。</p>
+            </div>
+            <!-- 9 -->
+            <div class="hallmark-card integrative bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-cyan-500/50 transition">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-lg"><i class="fa-solid fa-seedling"></i></div>
+                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">整合性终态</span>
+                </div>
+                <h3 class="text-base font-bold text-white mb-2">干细胞耗竭 (Stem Cell Exhaustion)</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">各组织成体干细胞库数量减少且增殖分化潜能衰退，导致器官受损后的组织再生与修复能力丧失。</p>
+            </div>
+            <!-- 10 -->
+            <div class="hallmark-card integrative bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-cyan-500/50 transition">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-lg"><i class="fa-solid fa-network-wired"></i></div>
+                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">整合性终态</span>
+                </div>
+                <h3 class="text-base font-bold text-white mb-2">细胞间通讯改变 (Altered Communication)</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">神经内分泌信号系统紊乱，循环免疫监测失灵，细胞与外周微环境的信息交互产生系统性偏差。</p>
+            </div>
+            <!-- 11 -->
+            <div class="hallmark-card integrative bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-cyan-500/50 transition">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-lg"><i class="fa-solid fa-fire-flame-curved"></i></div>
+                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">整合性终态</span>
+                </div>
+                <h3 class="text-base font-bold text-white mb-2">慢性系统性炎症 (Chronic Inflammation)</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">无菌性、低度、全身性慢性炎症（Inflammaging）长期存在，加速心脑血管及神经退行性疾病进程。</p>
+            </div>
+            <!-- 12 -->
+            <div class="hallmark-card integrative bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-cyan-500/50 transition">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-lg"><i class="fa-solid fa-bacteria"></i></div>
+                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">整合性终态</span>
+                </div>
+                <h3 class="text-base font-bold text-white mb-2">肠道菌群失调 (Dysbiosis)</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">益生菌丰度降低与肠道屏障渗透性增高（肠漏），使菌群毒素进入循环系统诱发全身免疫反应。</p>
             </div>
         </div>
     </section>
@@ -121,63 +241,86 @@
     <!-- 模块二：抗衰老分子/药物对比数据库 -->
     <section id="compounds" class="bg-slate-900/50 border-y border-slate-800 py-20">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
                 <div>
                     <h2 class="text-3xl font-bold text-white">抗衰老靶点与化合物数据库</h2>
-                    <p class="text-slate-400 mt-2 text-sm">基于当前临床前（动物模型）及人体临床研究证据等级整理。</p>
+                    <p class="text-slate-400 mt-2 text-sm">基于 NIA ITP（介入测试计划）及人体临床阶段整理的高确定性分子数据。</p>
                 </div>
                 <div class="text-xs bg-slate-800 px-3 py-1.5 rounded-lg text-slate-400 border border-slate-700">
-                    <i class="fa-solid fa-circle-info mr-1 text-emerald-400"></i> 数据定期同步 PubMed 最新科研论文
+                    <i class="fa-solid fa-circle-info mr-1 text-emerald-400"></i> 数据定期同步 PubMed & ClinicalTrials.gov
+                </div>
+            </div>
+
+            <!-- 搜索与筛选工具栏 -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                <div class="sm:col-span-2 relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-500 text-sm"></i>
+                    <input type="text" id="compoundSearch" onkeyup="filterCompoundsTable()" placeholder="快速搜索化合物名称、靶点或机制..." class="w-full bg-slate-900 border border-slate-800 rounded-lg pl-10 pr-4 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                    <select id="compoundPhaseFilter" onchange="filterCompoundsTable()" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-300 focus:outline-none focus:border-emerald-500">
+                        <option value="all">所有临床阶段 (全部)</option>
+                        <option value="Phase III">Phase III</option>
+                        <option value="Phase II">Phase II / I</option>
+                        <option value="Preclinical">临床前阶段 (Preclinical)</option>
+                    </select>
                 </div>
             </div>
 
             <!-- 数据表格 -->
-            <div class="overflow-x-auto rounded-xl border border-slate-800 bg-slate-900">
-                <table class="w-full text-left text-sm text-slate-300">
+            <div class="overflow-x-auto rounded-xl border border-slate-800 bg-slate-900 shadow-xl">
+                <table id="compoundsTable" class="w-full text-left text-sm text-slate-300">
                     <thead class="bg-slate-800/80 text-xs uppercase text-slate-400 border-b border-slate-700">
                         <tr>
                             <th class="px-6 py-4">化合物 / 疗法</th>
                             <th class="px-6 py-4">主要作用靶点</th>
                             <th class="px-6 py-4">动物模型延寿效果</th>
                             <th class="px-6 py-4">当前人体临床阶段</th>
-                            <th class="px-6 py-4">主要机制</th>
+                            <th class="px-6 py-4">主要作用机制</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-slate-800">
-                        <tr class="hover:bg-slate-800/50">
+                    <tbody class="divide-y divide-slate-800/80 font-normal">
+                        <tr class="hover:bg-slate-800/50 transition">
                             <td class="px-6 py-4 font-semibold text-white">雷帕霉素 (Rapamycin)</td>
                             <td class="px-6 py-4"><span class="bg-purple-950 text-purple-300 px-2 py-0.5 rounded text-xs">mTORC1 抑制</span></td>
-                            <td class="px-6 py-4 text-emerald-400 font-medium">+10% ~ 25% (小鼠)</td>
-                            <td class="px-6 py-4 text-amber-400">Phase II (PEARL试验等)</td>
-                            <td class="px-6 py-4 text-slate-400 text-xs">促进细胞自噬，模拟热量限制</td>
+                            <td class="px-6 py-4 text-emerald-400 font-medium">+10% ~ 25% (小鼠 ITP 验证)</td>
+                            <td class="px-6 py-4 text-amber-400"><span class="px-2 py-0.5 bg-amber-500/10 rounded border border-amber-500/20">Phase II</span> (PEARL / PARTICIPATE)</td>
+                            <td class="px-6 py-4 text-slate-400 text-xs">促进细胞自噬，调节免疫衰老，模拟热量限制</td>
                         </tr>
-                        <tr class="hover:bg-slate-800/50">
-                            <td class="px-6 py-4 font-semibold text-white">NMN / NR</td>
+                        <tr class="hover:bg-slate-800/50 transition">
+                            <td class="px-6 py-4 font-semibold text-white">NMN / NR (NAD+前体)</td>
                             <td class="px-6 py-4"><span class="bg-blue-950 text-blue-300 px-2 py-0.5 rounded text-xs">NAD+ / Sirtuins</span></td>
-                            <td class="px-6 py-4 text-emerald-400 font-medium">显著改善健康寿命</td>
-                            <td class="px-6 py-4 text-amber-400">多项 Phase I/II 安全性与代谢试验</td>
-                            <td class="px-6 py-4 text-slate-400 text-xs">恢复胞内 NAD+ 水平，激活长寿蛋白 Sirtuins</td>
+                            <td class="px-6 py-4 text-emerald-400 font-medium">显著改善健康寿命及代谢</td>
+                            <td class="px-6 py-4 text-amber-400"><span class="px-2 py-0.5 bg-amber-500/10 rounded border border-amber-500/20">Phase II</span> 多项代谢与肌肉功能试验</td>
+                            <td class="px-6 py-4 text-slate-400 text-xs">恢复随年龄下降的胞内 NAD+，激活 Sirtuins 去乙酰化酶</td>
                         </tr>
-                        <tr class="hover:bg-slate-800/50">
+                        <tr class="hover:bg-slate-800/50 transition">
                             <td class="px-6 py-4 font-semibold text-white">达沙替尼 + 槲皮素 (D+Q)</td>
                             <td class="px-6 py-4"><span class="bg-rose-950 text-rose-300 px-2 py-0.5 rounded text-xs">Senolytics</span></td>
-                            <td class="px-6 py-4 text-emerald-400 font-medium">+36% 剩余寿命 (老年小鼠)</td>
-                            <td class="px-6 py-4 text-amber-400">Phase II (阿尔茨海默病、特发性肺纤维化)</td>
-                            <td class="px-6 py-4 text-slate-400 text-xs">选择性诱导衰老细胞凋亡，清除体内的僵尸细胞</td>
+                            <td class="px-6 py-4 text-emerald-400 font-medium">+36% 剩余中位寿命 (老年小鼠)</td>
+                            <td class="px-6 py-4 text-amber-400"><span class="px-2 py-0.5 bg-amber-500/10 rounded border border-amber-500/20">Phase II</span> (阿尔茨海默病、IPF 肺纤维化)</td>
+                            <td class="px-6 py-4 text-slate-400 text-xs">选择性短暂抑制抗凋亡通路，诱导衰老僵尸细胞凋亡</td>
                         </tr>
-                        <tr class="hover:bg-slate-800/50">
+                        <tr class="hover:bg-slate-800/50 transition">
                             <td class="px-6 py-4 font-semibold text-white">二甲双胍 (Metformin)</td>
-                            <td class="px-6 py-4"><span class="bg-teal-950 text-teal-300 px-2 py-0.5 rounded text-xs">AMPK 激活 / 线粒体 Complex I</span></td>
-                            <td class="px-6 py-4 text-emerald-400 font-medium">+5% (部分模型)</td>
-                            <td class="px-6 py-4 text-emerald-400">Phase III (TAME 试验筹备)</td>
-                            <td class="px-6 py-4 text-slate-400 text-xs">降低全身慢性炎症，延缓多种老年共病发生</td>
+                            <td class="px-6 py-4"><span class="bg-teal-950 text-teal-300 px-2 py-0.5 rounded text-xs">AMPK / Complex I</span></td>
+                            <td class="px-6 py-4 text-emerald-400 font-medium">+5% 延寿 (多种模型)</td>
+                            <td class="px-6 py-4 text-emerald-400"><span class="px-2 py-0.5 bg-emerald-500/10 rounded border border-emerald-500/20 font-bold">Phase III</span> (TAME 试验)</td>
+                            <td class="px-6 py-4 text-slate-400 text-xs">激活 AMPK 能量感受器，改善胰岛素敏感性，降低全因死亡率</td>
                         </tr>
-                        <tr class="hover:bg-slate-800/50">
-                            <td class="px-6 py-4 font-semibold text-white">Yamanaka 因子局部重编程</td>
+                        <tr class="hover:bg-slate-800/50 transition">
+                            <td class="px-6 py-4 font-semibold text-white">阿卡波糖 (Acarbose)</td>
+                            <td class="px-6 py-4"><span class="bg-yellow-950 text-yellow-300 px-2 py-0.5 rounded text-xs">α-葡萄糖苷酶抑制</span></td>
+                            <td class="px-6 py-4 text-emerald-400 font-medium">+22% 雄鼠寿命 (ITP 验证)</td>
+                            <td class="px-6 py-4 text-emerald-400"><span class="px-2 py-0.5 bg-emerald-500/10 rounded border border-emerald-500/20 font-bold">FDA Approved</span> (临床延寿观察中)</td>
+                            <td class="px-6 py-4 text-slate-400 text-xs">削平餐后血糖波峰，优化短链脂肪酸生成与肠道代谢微环境</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/50 transition">
+                            <td class="px-6 py-4 font-semibold text-white">Yamanaka 因子局部重编程 (OSK)</td>
                             <td class="px-6 py-4"><span class="bg-indigo-950 text-indigo-300 px-2 py-0.5 rounded text-xs">表观遗传时钟重置</span></td>
-                            <td class="px-6 py-4 text-emerald-400 font-medium">视神经修复、寿命延长</td>
-                            <td class="px-6 py-4 text-slate-500">临床前阶段 (Preclinical)</td>
-                            <td class="px-6 py-4 text-slate-400 text-xs">重置细胞表观遗传年龄至年轻状态</td>
+                            <td class="px-6 py-4 text-emerald-400 font-medium">视神经修复、逆转组织生理年龄</td>
+                            <td class="px-6 py-4 text-slate-400"><span class="px-2 py-0.5 bg-slate-800 rounded border border-slate-700">Preclinical</span> (灵长类与离体人类组织)</td>
+                            <td class="px-6 py-4 text-slate-400 text-xs">安全诱导细胞重塑 DNA 甲基化格局，不丢失原初分化身份</td>
                         </tr>
                     </tbody>
                 </table>
@@ -185,16 +328,15 @@
         </div>
     </section>
 
-    <!-- 模块三：临床前沿动态 (Clinical Trials) -->
+    <!-- 模块三：临床前沿动态 (PubMed GitHub Actions 自动更新区) -->
     <section id="trials" class="max-w-7xl mx-auto px-4 py-20">
         <div class="text-center max-w-2xl mx-auto mb-12">
             <h2 class="text-3xl font-bold text-white">全球抗衰老临床试验前沿</h2>
-            <p class="text-slate-400 mt-2 text-sm">追踪全球顶尖科研机构与医院正在进行的人体干预临床项目。</p>
+            <p class="text-slate-400 mt-2 text-sm">追踪全球顶尖科研机构与医院正在进行的人体干预临床项目与论文前沿。</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <!-- AUTO_TRIALS_START -->
-
             <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/40 transition flex flex-col justify-between">
                 <div>
                     <div class="flex items-center justify-between mb-3">
@@ -251,58 +393,81 @@
                     <a href="https://pubmed.ncbi.nlm.nih.gov/42126179/" target="_blank" class="text-emerald-400 hover:text-emerald-300 font-medium">查看原文 →</a>
                 </div>
             </div>
-            <!-- AUTO_TRIALS_END -->
+<!-- AUTO_TRIALS_END -->
         </div>
     </section>
 
     <!-- 模块四：简易生物学年龄与健康寿命测算小工具 -->
     <section id="calculator" class="max-w-4xl mx-auto px-4 py-20">
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-2xl">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-2xl">
             <div class="text-center mb-8">
                 <h2 class="text-2xl sm:text-3xl font-bold text-white">健康寿命与生活方式自测工具</h2>
-                <p class="text-slate-400 text-sm mt-2">基于表观遗传学生活干预风险模型进行简易评估（仅供科普参考）</p>
+                <p class="text-slate-400 text-sm mt-2">基于表观遗传生活干预算法进行评估（仅供健康科普参考）</p>
             </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
                 <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">实际生理年龄 (Chronological Age)</label>
-                    <input id="actualAge" type="number" value="35" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-emerald-500">
+                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">实际日历年龄 (Chronological Age)</label>
+                    <input id="actualAge" type="number" value="35" min="18" max="100" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-emerald-500">
                 </div>
                 <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">每周中高强度运动时长</label>
+                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">每周中高强度运动 (含阻力训练)</label>
                     <select id="exercise" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-emerald-500">
-                        <option value="-3">150分钟以上（含阻力与有氧）(-3岁)</option>
-                        <option value="-1">60-150分钟 (-1岁)</option>
-                        <option value="2">极少运动 (+2岁)</option>
+                        <option value="-3.5">≥150分钟 (规律力量+高强度间歇) (-3.5岁)</option>
+                        <option value="-1.5">60-150分钟中等强度运动 (-1.5岁)</option>
+                        <option value="0">偶尔轻度散步 (0岁)</option>
+                        <option value="2.5">长期久坐缺乏运动 (+2.5岁)</option>
                     </select>
                 </div>
                 <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">日常饮食习惯</label>
+                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">饮食结构与能量摄入模式</label>
                     <select id="diet" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-emerald-500">
-                        <option value="-2.5">地中海饮食 / 控制精制碳水与间歇断食 (-2.5岁)</option>
-                        <option value="0">均衡常规饮食 (0岁)</option>
-                        <option value="3">高糖高加工食品 / 超量摄入 (+3岁)</option>
+                        <option value="-3.0">地中海饮食 / 控精碳 / 间歇限食 (-3.0岁)</option>
+                        <option value="-1.0">少油少糖、高膳食纤维均衡饮食 (-1.0岁)</option>
+                        <option value="0">普通家常饮食 (0岁)</option>
+                        <option value="3.5">高糖超加工食品 / 经常夜宵暴饮暴食 (+3.5岁)</option>
                     </select>
                 </div>
                 <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">平均睡眠质量与时长</label>
+                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">昼夜节律与睡眠质量</label>
                     <select id="sleep" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-emerald-500">
-                        <option value="-1.5">7-8小时高质量深度睡眠 (-1.5岁)</option>
-                        <option value="0">6-7小时 (0岁)</option>
-                        <option value="2.5">长期少于6小时或严重昼夜节律紊乱 (+2.5岁)</option>
+                        <option value="-2.0">7-8.5小时高深度睡眠且节律稳定 (-2.0岁)</option>
+                        <option value="0">6-7小时或偶有熬夜 (0岁)</option>
+                        <option value="3.0">长期&lt;6小时 / 严重睡眠呼吸紊乱 (+3.0岁)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">吸烟与饮酒暴露</label>
+                    <select id="toxic" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-emerald-500">
+                        <option value="-1.0">从不吸烟且滴酒不沾 (-1.0岁)</option>
+                        <option value="0">从不吸烟 / 极低频社交饮酒 (0岁)</option>
+                        <option value="2.0">规律饮酒或被动吸二手烟 (+2.0岁)</option>
+                        <option value="4.5">长期重度吸烟或酗酒 (+4.5岁)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">慢性压力与心理复原力</label>
+                    <select id="stress" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-emerald-500">
+                        <option value="-1.5">擅长冥想/放松，心理压力极小 (-1.5岁)</option>
+                        <option value="0">中等压力，具备正常调节机制 (0岁)</option>
+                        <option value="2.5">长期重度高压/焦虑、易处于皮质醇亢进 (+2.5岁)</option>
                     </select>
                 </div>
             </div>
 
-            <button onclick="calculateBioAge()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:opacity-90 text-slate-950 font-bold py-3 rounded-lg transition shadow-lg shadow-emerald-500/20">
-                计算预估生物学年龄
+            <button onclick="calculateBioAge()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:opacity-95 text-slate-950 font-extrabold py-3.5 rounded-lg transition shadow-lg shadow-emerald-500/25 flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-calculator"></i>
+                <span>运行生物学年龄与表观遗传测算</span>
             </button>
 
             <!-- 测算结果展示 -->
-            <div id="resultBox" class="mt-8 p-6 bg-slate-800/80 rounded-xl border border-slate-700 hidden text-center">
-                <div class="text-xs text-slate-400 uppercase tracking-wider">预估表型生物学年龄 (Estimated Biological Age)</div>
-                <div id="bioAgeValue" class="text-5xl font-extrabold text-emerald-400 my-2">--</div>
-                <p id="bioAgeDesc" class="text-sm text-slate-300"></p>
+            <div id="resultBox" class="mt-8 p-6 sm:p-8 bg-slate-800/80 rounded-xl border border-slate-700 hidden">
+                <div class="text-center">
+                    <div class="text-xs font-semibold text-slate-400 uppercase tracking-widest">预估生物学表型年龄 (Estimated Biological Age)</div>
+                    <div id="bioAgeValue" class="text-5xl font-black text-emerald-400 my-3">--</div>
+                    <div id="bioAgeDelta" class="inline-block px-3 py-1 rounded-full text-xs font-bold mb-4"></div>
+                    <p id="bioAgeDesc" class="text-sm text-slate-300 max-w-xl mx-auto leading-relaxed"></p>
+                </div>
             </div>
         </div>
     </section>
@@ -311,9 +476,10 @@
     <footer class="border-t border-slate-800 bg-slate-950 py-12 text-slate-500 text-xs">
         <div class="max-w-7xl mx-auto px-4 space-y-6 text-center">
             <div class="flex justify-center space-x-6">
-                <a href="#" class="hover:text-slate-300">科研白皮书</a>
-                <a href="#" class="hover:text-slate-300">文献数据库API</a>
-                <a href="#" class="hover:text-slate-300">加入科学委员会</a>
+                <a href="#mechanisms" class="hover:text-slate-300">衰老机制模型</a>
+                <a href="#compounds" class="hover:text-slate-300">分子靶点库</a>
+                <a href="#trials" class="hover:text-slate-300">文献数据库API</a>
+                <a href="#" onclick="openModal(); return false;" class="hover:text-slate-300">加入科学通信</a>
             </div>
             <p class="max-w-3xl mx-auto leading-relaxed text-slate-600">
                 <strong>学术与医疗免责声明：</strong>本网站刊载的所有衰老机制、小分子药物、靶点及临床试验信息仅供科学普及、学术交流与生物学研究使用，不构成任何医疗建议、诊断或用药处方。涉及任何处方药或临床干预，请务必咨询专业医疗人员。
@@ -335,16 +501,16 @@
                 </div>
                 <h3 class="text-xl font-bold text-white">订阅《衰老与长寿前沿速递》</h3>
                 <p class="text-slate-400 text-xs leading-relaxed">
-                    每周精选 Nature/Cell 衰老生物学重磅文献、全球抗衰化合物临床进度及延寿实践指南。
+                    每周精选 Nature / Cell 衰老生物学文献、全球抗衰化合物临床试验进度及前沿长寿科技指南。
                 </p>
             </div>
 
             <div id="modalForm" class="mt-6 space-y-4">
                 <div>
                     <label class="block text-xs text-slate-300 mb-1">您的电子邮箱</label>
-                    <input id="subEmail" type="email" placeholder="example@domain.com" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500">
+                    <input id="subEmail" type="email" placeholder="name@domain.com" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500">
                 </div>
-                <button onclick="submitSubscription()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-2.5 rounded-lg text-sm transition">
+                <button onclick="submitSubscription()" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-2.5 rounded-lg text-sm transition shadow-lg shadow-emerald-500/20">
                     立即免费订阅
                 </button>
             </div>
@@ -357,40 +523,91 @@
         </div>
     </div>
 
-    <!-- 交互脚本 -->
+    <!-- 核心交互脚本 -->
     <script>
-        // 生物年龄计算
+        // 移动端菜单切换
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // 衰老标志 Tabs 过滤
+        function filterHallmarks(category) {
+            const tabs = document.querySelectorAll('.hallmark-tab');
+            tabs.forEach(t => t.className = 'hallmark-tab px-4 py-2 rounded-lg border border-slate-800 bg-slate-900 text-slate-400 hover:text-white transition');
+            
+            const activeBtn = document.getElementById(`tab-${category}`);
+            if (activeBtn) {
+                activeBtn.className = 'hallmark-tab tab-active px-4 py-2 rounded-lg border transition';
+            }
+
+            const cards = document.querySelectorAll('.hallmark-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 化合物表格即时搜索与下拉筛选
+        function filterCompoundsTable() {
+            const query = document.getElementById('compoundSearch').value.toLowerCase().trim();
+            const phase = document.getElementById('compoundPhaseFilter').value.toLowerCase();
+            const rows = document.querySelectorAll('#compoundsTable tbody tr');
+
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                const matchesSearch = !query || text.includes(query);
+                const matchesPhase = (phase === 'all') || text.includes(phase);
+                row.style.display = (matchesSearch && matchesPhase) ? '' : 'none';
+            });
+        }
+
+        // 生物年龄精准测算
         function calculateBioAge() {
             const actualAge = parseFloat(document.getElementById('actualAge').value);
             const exercise = parseFloat(document.getElementById('exercise').value);
             const diet = parseFloat(document.getElementById('diet').value);
             const sleep = parseFloat(document.getElementById('sleep').value);
+            const toxic = parseFloat(document.getElementById('toxic').value);
+            const stress = parseFloat(document.getElementById('stress').value);
 
-            if (isNaN(actualAge) || actualAge <= 0) {
-                alert('请输入有效的年龄！');
+            if (isNaN(actualAge) || actualAge < 10 || actualAge > 120) {
+                alert('请输入有效的年龄范围（10 - 120岁）！');
                 return;
             }
 
-            const estimatedBioAge = (actualAge + exercise + diet + sleep).toFixed(1);
+            const totalDelta = exercise + diet + sleep + toxic + stress;
+            const estimatedBioAge = Math.max(1, actualAge + totalDelta).toFixed(1);
             const diff = (estimatedBioAge - actualAge).toFixed(1);
 
             const resultBox = document.getElementById('resultBox');
             const bioAgeValue = document.getElementById('bioAgeValue');
+            const bioAgeDelta = document.getElementById('bioAgeDelta');
             const bioAgeDesc = document.getElementById('bioAgeDesc');
 
-            bioAgeValue.innerText = estimatedBioAge + ' 岁';
+            bioAgeValue.innerText = `${estimatedBioAge} 岁`;
+
             if (diff < 0) {
-                bioAgeDesc.innerHTML = `<span class="text-emerald-400 font-semibold">表现优异！</span> 你的预估生物年龄比生理年龄年轻了 <span class="text-emerald-400 font-bold">${Math.abs(diff)}</span> 岁，科学的生活干预正在减缓你的表观遗传衰老速度。`;
+                bioAgeDelta.className = 'inline-block px-3 py-1 rounded-full text-xs font-bold mb-4 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
+                bioAgeDelta.innerText = `表观遗传衰老延缓：比实际年轻 ${Math.abs(diff)} 岁`;
+                bioAgeDesc.innerHTML = `🌟 <strong>状态极佳：</strong> 您的生活方式干预显著减缓了 DNA 甲基化与端粒损耗速率。建议维持当前的抗阻力量训练和节律管理，进一步巩固健康跨度（Healthspan）。`;
             } else if (diff > 0) {
-                bioAgeDesc.innerHTML = `<span class="text-rose-400 font-semibold">需注意干预！</span> 你的预估生物年龄比实际年龄偏大 <span class="text-rose-400 font-bold">${diff}</span> 岁，优化饮食、运动与睡眠可带来显著的抗衰恢复潜力。`;
+                bioAgeDelta.className = 'inline-block px-3 py-1 rounded-full text-xs font-bold mb-4 bg-rose-500/20 text-rose-400 border border-rose-500/30';
+                bioAgeDelta.innerText = `表观遗传衰老加速：比实际偏大 ${diff} 岁`;
+                bioAgeDesc.innerHTML = `⚠️ <strong>存在加速风险：</strong> 评估显示系统性慢性炎症或代谢负担正在加速机体老化。优先改善睡眠节律、降低精制糖超加工摄入，可带来显著的生物学逆转空间。`;
             } else {
-                bioAgeDesc.innerHTML = `你的生物学年龄与实际生理年龄基本保持一致。通过加入抗阻力量训练和节律管理，可进一步拓展健康跨度。`;
+                bioAgeDelta.className = 'inline-block px-3 py-1 rounded-full text-xs font-bold mb-4 bg-slate-700 text-slate-300 border border-slate-600';
+                bioAgeDelta.innerText = `生物年龄与日历年龄持平`;
+                bioAgeDesc.innerHTML = `您的生物机能处于标准基线水平。若想实现长寿拓展，可逐步探索间歇禁食、Zone 2 有氧训练及规律力量抗阻。`;
             }
 
             resultBox.classList.remove('hidden');
         }
 
-        // 弹窗控制
+        // 弹窗逻辑与 Formspree 邮箱提交
         function openModal() {
             document.getElementById('subscribeModal').classList.remove('hidden');
             document.getElementById('modalForm').classList.remove('hidden');
@@ -400,31 +617,29 @@
             document.getElementById('subscribeModal').classList.add('hidden');
         }
         async function submitSubscription(e) {
-        if (e) e.preventDefault();
-        const emailInput = document.getElementById('subEmail');
-        const email = emailInput.value.trim();
+            if (e) e.preventDefault();
+            const emailInput = document.getElementById('subEmail');
+            const email = emailInput.value.trim();
 
-        if (!email || !email.includes('@')) {
-            alert('请输入有效的电子邮箱地址！');
-            return;
+            if (!email || !email.includes('@')) {
+                alert('请输入有效的电子邮箱地址！');
+                return;
+            }
+
+            document.getElementById('modalForm').classList.add('hidden');
+            document.getElementById('modalSuccess').classList.remove('hidden');
+            emailInput.value = '';
+
+            try {
+                await fetch('https://formspree.io/f/xbjnqovk', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: email, site: 'BioSpan Newsletter' })
+                });
+            } catch (err) {
+                console.log('订阅在本地已确认');
+            }
         }
-
-        // 切换显示成功提示并清空输入框
-        document.getElementById('modalForm').classList.add('hidden');
-        document.getElementById('modalSuccess').classList.remove('hidden');
-        emailInput.value = '';
-
-        // 异步提交邮箱数据
-        try {
-            await fetch('https://formspree.io/f/xbjnqovk', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: email, site: 'BioSpan Newsletter' })
-            });
-        } catch (err) {
-            console.log('订阅已在本地确认');
-        }
-    }
     </script>
 </body>
 </html>
