@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BioSpan 极寿生命科学研究院 | Longevity & Anti-Aging Research Hub</title>
-    <meta name="description" content="汇集全球衰老生物学（Geroscience）、延寿小分子化合物、基因疗法与细胞重编程的学术研究与临床试验数据追踪平台。">
+    <meta name="description" content="汇集全球衰老生物学（Geroscience）、肿瘤疫苗前沿、延寿小分子化合物与最新同行评审临床研究数据。">
     <meta property="og:title" content="BioSpan 极寿生命科学研究院">
     <meta property="og:description" content="探索寿命极限，破译衰老与长寿的分子密码。">
     <meta property="og:type" content="website">
@@ -39,30 +39,35 @@
                 <span class="text-xl font-extrabold tracking-wider text-white">BIO<span class="text-emerald-400">SPAN</span></span>
             </a>
             
-            <div class="hidden md:flex space-x-7 text-sm font-medium text-slate-300">
+            <div class="hidden lg:flex space-x-7 text-sm font-medium text-slate-300">
                 <a href="#mechanisms" class="hover:text-emerald-400 transition">衰老机制</a>
                 <a href="#compounds" class="hover:text-emerald-400 transition">抗衰分子库</a>
-                <a href="#roadmap" class="hover:text-emerald-400 transition">长寿技术路线图</a>
-                <a href="#trials" class="hover:text-emerald-400 transition">临床前沿</a>
-                <a href="#calculator" class="hover:text-emerald-400 transition">生物年龄测算</a>
+                <a href="#cancer-vaccines" class="hover:text-emerald-400 transition flex items-center">
+                    <span>肿瘤疫苗</span>
+                    <span class="ml-1.5 px-1.5 py-0.2 bg-rose-500/20 text-rose-400 text-[10px] rounded border border-rose-500/30">前沿</span>
+                </a>
+                <a href="#roadmap" class="hover:text-emerald-400 transition">技术路线图</a>
+                <a href="#trials" class="hover:text-emerald-400 transition">临床文献</a>
+                <a href="#calculator" class="hover:text-emerald-400 transition">年龄雷达测算</a>
             </div>
 
             <div class="flex items-center space-x-3">
                 <button onclick="openModal()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-4 py-2 rounded-lg text-sm transition shadow-lg shadow-emerald-500/20">
                     <i class="fa-regular fa-envelope mr-1.5 hidden sm:inline"></i>订阅简报
                 </button>
-                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden text-slate-400 hover:text-white p-2 text-xl">
+                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden text-slate-400 hover:text-white p-2 text-xl">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
 
         <!-- 移动端折叠菜单 -->
-        <div id="mobileMenu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2 bg-slate-900 border-b border-slate-800 text-sm font-medium">
+        <div id="mobileMenu" class="hidden lg:hidden px-4 pt-2 pb-4 space-y-2 bg-slate-900 border-b border-slate-800 text-sm font-medium">
             <a href="#mechanisms" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-emerald-400">衰老机制 (12 Hallmarks)</a>
             <a href="#compounds" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-emerald-400">抗衰分子库 (详情抽屉)</a>
+            <a href="#cancer-vaccines" onclick="toggleMobileMenu()" class="block py-2 text-rose-400 hover:text-rose-300">🔥 肿瘤与胰腺癌疫苗专栏</a>
             <a href="#roadmap" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-emerald-400">长寿技术路线图</a>
-            <a href="#trials" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-emerald-400">临床前沿</a>
+            <a href="#trials" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-emerald-400">临床前沿动态</a>
             <a href="#calculator" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-emerald-400">生物年龄雷达测算</a>
         </div>
     </nav>
@@ -72,15 +77,19 @@
         <div class="max-w-4xl mx-auto space-y-6">
             <div class="inline-flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full text-emerald-400 text-xs font-semibold uppercase tracking-wider">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>严谨 · 实证 · 衰老生物学 (Geroscience)</span>
+                <span>严谨 · 实证 · 衰老生物学与肿瘤免疫</span>
             </div>
             <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
                 探索寿命极限 <br><span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">破译衰老与长寿的分子密码</span>
             </h1>
             <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-                汇集全球衰老生物学前沿机理、延寿小分子化合物、局部细胞重编程与最新同行评审临床研究数据。
+                汇集衰老生物学前沿机理、胰腺癌/肿瘤新抗原疫苗、延寿化合物与最新同行评审临床试验数据。
             </p>
             <div class="flex flex-wrap justify-center gap-4 pt-4">
+                <a href="#cancer-vaccines" class="bg-rose-500 hover:bg-rose-400 text-white font-bold px-6 py-3 rounded-lg transition flex items-center space-x-2 shadow-lg shadow-rose-500/20">
+                    <i class="fa-solid fa-shield-virus"></i>
+                    <span>查看胰腺癌疫苗专栏</span>
+                </a>
                 <a href="#compounds" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-6 py-3 rounded-lg transition flex items-center space-x-2 shadow-lg shadow-emerald-500/20">
                     <i class="fa-solid fa-flask"></i>
                     <span>查阅化合物数据库</span>
@@ -101,8 +110,8 @@
                 <div class="text-xs text-slate-400 mt-1 font-medium">核心衰老生物标志</div>
             </div>
             <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-xl backdrop-blur text-center shadow-lg">
-                <div class="text-3xl font-extrabold text-teal-400">50+</div>
-                <div class="text-xs text-slate-400 mt-1 font-medium">在研延寿分子靶点</div>
+                <div class="text-3xl font-extrabold text-rose-400">87.5%</div>
+                <div class="text-xs text-slate-400 mt-1 font-medium">胰腺癌疫苗应答者长期存活率</div>
             </div>
             <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-xl backdrop-blur text-center shadow-lg">
                 <div class="text-3xl font-extrabold text-cyan-400">300+</div>
@@ -136,7 +145,7 @@
                     <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">原发性标志</span>
                 </div>
                 <h3 class="text-base font-bold text-white mb-2">基因组不稳定性 (Genomic Instability)</h3>
-                <p class="text-slate-400 text-xs leading-relaxed">内源性及外源性损伤导致 DNA 突变、染色体异常与断裂持续累积，破坏转录调控与细胞稳态。</p>
+                <p class="text-slate-400 text-xs leading-relaxed">DNA突变与染色体断裂累积破坏转录调控，也是老年体细胞恶性突变与癌变的主要诱因。</p>
             </div>
             <div class="hallmark-card primary bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition">
                 <div class="flex items-center justify-between mb-4">
@@ -144,7 +153,7 @@
                     <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">原发性标志</span>
                 </div>
                 <h3 class="text-base font-bold text-white mb-2">端粒损耗 (Telomere Attrition)</h3>
-                <p class="text-slate-400 text-xs leading-relaxed">染色体末端保护帽随每次有丝分裂而进行性缩短，触发复制性衰老并限制细胞代际增殖极限。</p>
+                <p class="text-slate-400 text-xs leading-relaxed">染色体末端保护帽进行性缩短，触发复制性衰老并限制细胞代际增殖极限。</p>
             </div>
             <div class="hallmark-card primary bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition">
                 <div class="flex items-center justify-between mb-4">
@@ -152,7 +161,7 @@
                     <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">原发性标志</span>
                 </div>
                 <h3 class="text-base font-bold text-white mb-2">表观遗传学改变 (Epigenetic Alterations)</h3>
-                <p class="text-slate-400 text-xs leading-relaxed">DNA 甲基化格局漂移与组蛋白修饰紊乱导致细胞身份丢失，是现代表观遗传时钟（Horvath Clock）的核心测算基础。</p>
+                <p class="text-slate-400 text-xs leading-relaxed">DNA 甲基化格局漂移与组蛋白修饰紊乱导致细胞身份丢失，是表观遗传时钟测算基础。</p>
             </div>
             <div class="hallmark-card primary bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition">
                 <div class="flex items-center justify-between mb-4">
@@ -160,7 +169,7 @@
                     <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">原发性标志</span>
                 </div>
                 <h3 class="text-base font-bold text-white mb-2">蛋白质稳态丧失 (Loss of Proteostasis)</h3>
-                <p class="text-slate-400 text-xs leading-relaxed">伴侣蛋白与泛素-蛋白酶体系统活性下降，导致错误折叠蛋白与有毒聚集体在细胞内病理性沉积。</p>
+                <p class="text-slate-400 text-xs leading-relaxed">伴侣蛋白与蛋白酶体活性下降，导致错误折叠蛋白与有毒聚集体在细胞内病理性沉积。</p>
             </div>
             <div class="hallmark-card primary bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/50 transition">
                 <div class="flex items-center justify-between mb-4">
@@ -168,7 +177,7 @@
                     <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">原发性标志</span>
                 </div>
                 <h3 class="text-base font-bold text-white mb-2">宏自噬受损 (Disabled Macroautophagy)</h3>
-                <p class="text-slate-400 text-xs leading-relaxed">自噬小体清除受损细胞器及蛋白质大分子的功能受阻，加剧胞内垃圾堆积与代谢毒性。</p>
+                <p class="text-slate-400 text-xs leading-relaxed">自噬小体清除受损细胞器及蛋白质大分子的功能受阻，加剧胞内代谢垃圾堆积。</p>
             </div>
             <div class="hallmark-card antagonistic bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-teal-500/50 transition">
                 <div class="flex items-center justify-between mb-4">
@@ -176,7 +185,7 @@
                     <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-teal-500/10 text-teal-400 border border-teal-500/20">拮抗性代偿</span>
                 </div>
                 <h3 class="text-base font-bold text-white mb-2">营养感知失调 (Deregulated Nutrient-Sensing)</h3>
-                <p class="text-slate-400 text-xs leading-relaxed">mTOR 通路持续过载激活、AMPK 与 Sirtuins 长寿蛋白活性衰退，阻断细胞修复机制。</p>
+                <p class="text-slate-400 text-xs leading-relaxed">mTOR 通路持续过载、AMPK 与 Sirtuins 活性衰退，阻断细胞自身修复机制。</p>
             </div>
             <div class="hallmark-card antagonistic bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-teal-500/50 transition">
                 <div class="flex items-center justify-between mb-4">
@@ -184,7 +193,7 @@
                     <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-teal-500/10 text-teal-400 border border-teal-500/20">拮抗性代偿</span>
                 </div>
                 <h3 class="text-base font-bold text-white mb-2">线粒体功能障碍 (Mitochondrial Dysfunction)</h3>
-                <p class="text-slate-400 text-xs leading-relaxed">电子传递链效率下降引发 ATP 匮乏，同时过量泄漏活性氧（ROS）诱发线粒体自噬障碍与能量危机。</p>
+                <p class="text-slate-400 text-xs leading-relaxed">呼吸链效率下降导致 ATP 匮乏，过量泄漏活性氧（ROS）诱发能量危机与代谢紊乱。</p>
             </div>
             <div class="hallmark-card antagonistic bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-teal-500/50 transition">
                 <div class="flex items-center justify-between mb-4">
@@ -192,7 +201,7 @@
                     <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-teal-500/10 text-teal-400 border border-teal-500/20">拮抗性代偿</span>
                 </div>
                 <h3 class="text-base font-bold text-white mb-2">细胞衰老 (Cellular Senescence)</h3>
-                <p class="text-slate-400 text-xs leading-relaxed">“僵尸细胞”永久停滞分裂却抗拒凋亡，持续分泌高毒性促炎介质（SASP），毒害周围健康细胞。</p>
+                <p class="text-slate-400 text-xs leading-relaxed">“僵尸细胞”永久停滞分裂却抗拒凋亡，持续分泌促炎介质（SASP）破坏周围组织。</p>
             </div>
             <div class="hallmark-card integrative bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-cyan-500/50 transition">
                 <div class="flex items-center justify-between mb-4">
@@ -200,7 +209,7 @@
                     <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">整合性终态</span>
                 </div>
                 <h3 class="text-base font-bold text-white mb-2">干细胞耗竭 (Stem Cell Exhaustion)</h3>
-                <p class="text-slate-400 text-xs leading-relaxed">各组织成体干细胞库数量减少且增殖分化潜能衰退，导致器官受损后的组织再生与修复能力丧失。</p>
+                <p class="text-slate-400 text-xs leading-relaxed">成体干细胞库数量减少且分化潜能衰退，导致器官受损后自我修复再生能力丧失。</p>
             </div>
             <div class="hallmark-card integrative bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-cyan-500/50 transition">
                 <div class="flex items-center justify-between mb-4">
@@ -208,7 +217,7 @@
                     <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">整合性终态</span>
                 </div>
                 <h3 class="text-base font-bold text-white mb-2">细胞间通讯改变 (Altered Communication)</h3>
-                <p class="text-slate-400 text-xs leading-relaxed">神经内分泌信号系统紊乱，循环免疫监测失灵，细胞与外周微环境的信息交互产生系统性偏差。</p>
+                <p class="text-slate-400 text-xs leading-relaxed">神经内分泌信号系统紊乱，循环免疫监测失灵，细胞与微环境信息交互异常。</p>
             </div>
             <div class="hallmark-card integrative bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-cyan-500/50 transition">
                 <div class="flex items-center justify-between mb-4">
@@ -216,7 +225,7 @@
                     <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">整合性终态</span>
                 </div>
                 <h3 class="text-base font-bold text-white mb-2">慢性系统性炎症 (Chronic Inflammation)</h3>
-                <p class="text-slate-400 text-xs leading-relaxed">无菌性、低度、全身性慢性炎症（Inflammaging）长期存在，加速心脑血管及神经退行性疾病进程。</p>
+                <p class="text-slate-400 text-xs leading-relaxed">无菌性低度慢性炎症（Inflammaging）长期存在，促进心脑血管疾病及免疫衰退。</p>
             </div>
             <div class="hallmark-card integrative bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-cyan-500/50 transition">
                 <div class="flex items-center justify-between mb-4">
@@ -224,12 +233,12 @@
                     <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">整合性终态</span>
                 </div>
                 <h3 class="text-base font-bold text-white mb-2">肠道菌群失调 (Dysbiosis)</h3>
-                <p class="text-slate-400 text-xs leading-relaxed">益生菌丰度降低与肠道屏障渗透性增高（肠漏），使菌群毒素进入循环系统诱发全身免疫反应。</p>
+                <p class="text-slate-400 text-xs leading-relaxed">益生菌丰度降低与肠道屏障渗透性增高（肠漏），诱发全身免疫反应与代谢衰老。</p>
             </div>
         </div>
     </section>
 
-    <!-- 模块二：抗衰老分子/药物对比数据库 (支持点击抽屉查看临床方案) -->
+    <!-- 模块二：抗衰老分子/药物对比数据库 -->
     <section id="compounds" class="bg-slate-900/50 border-y border-slate-800 py-20">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
@@ -337,51 +346,159 @@
         </div>
     </section>
 
+    <!-- 🔥 新增核心模块：前沿肿瘤疫苗与胰腺癌免疫拦截专栏 -->
+    <section id="cancer-vaccines" class="max-w-7xl mx-auto px-4 py-20">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+            <div>
+                <div class="inline-flex items-center space-x-2 bg-rose-500/10 border border-rose-500/30 px-3 py-1 rounded-full text-rose-400 text-xs font-semibold uppercase tracking-wider mb-3">
+                    <i class="fa-solid fa-virus-slash"></i>
+                    <span>Onco-Immunology Frontiers</span>
+                </div>
+                <h2 class="text-3xl font-extrabold text-white">前沿肿瘤疫苗与免疫拦截专栏</h2>
+                <p class="text-slate-400 mt-2 text-sm max-w-2xl">
+                    免疫衰老是肿瘤发生的核心驱动力。胰腺癌被称为“癌王”，近年以个性化 mRNA 疫苗与 KRAS 靶向疫苗为代表的免疫疗法在防复发和超长生存期上取得里程碑突破。
+                </p>
+            </div>
+            <div class="text-xs bg-rose-950/40 border border-rose-900/60 text-rose-300 px-4 py-2 rounded-xl">
+                <i class="fa-solid fa-dna mr-1.5"></i> 追踪 Nature / Nature Medicine 最新管线
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- 卡片 1: 胰腺癌个性化 mRNA 疫苗 -->
+            <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 rounded-2xl p-6 transition flex flex-col justify-between shadow-xl group">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20">个性化定制 mRNA</span>
+                        <span class="text-xs px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 font-semibold">Phase II 临床在研</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-rose-400 transition">Autogene Cevumeran (BNT122)</h3>
+                    <p class="text-slate-400 text-xs mb-4"><strong>研发联合：</strong>BioNTech / 罗氏 Genentech / 纪念斯隆凯特琳癌症中心 (MSKCC)</p>
+                    
+                    <div class="space-y-3 text-xs text-slate-300">
+                        <div class="bg-slate-800/60 p-3 rounded-lg border border-slate-700/50">
+                            <span class="text-rose-400 font-bold block mb-1"><i class="fa-solid fa-microscope mr-1"></i> 核心机理与突破</span>
+                            术后提取患者胰腺肿瘤样本进行全外显子测序，利用算法筛选最多 20 个高免疫原性**肿瘤新生抗原 (Neoantigens)** 定制 mRNA，诱导产生持续长达 6 年的高活性 CD8+ 杀伤性 T 细胞。
+                        </div>
+                        <div class="bg-slate-800/60 p-3 rounded-lg border border-slate-700/50">
+                            <span class="text-emerald-400 font-bold block mb-1"><i class="fa-solid fa-chart-line mr-1"></i> 临床数据 (*Nature* 追踪)</span>
+                            I 期长期随访显示：产生有效 T 细胞应答的患者中，<strong>87.5% (7/8)</strong> 在术后 4~6 年内实现无复发生存，显著优于未产生疫苗应答组。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pt-5 mt-6 border-t border-slate-800 flex items-center justify-between text-xs">
+                    <span class="text-slate-500">PMID: 37165196</span>
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/37165196/" target="_blank" class="text-rose-400 hover:text-rose-300 font-semibold flex items-center">
+                        查看 Nature 原文 <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 卡片 2: 两亲性靶向 KRAS 疫苗 ELI-002 -->
+            <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 rounded-2xl p-6 transition flex flex-col justify-between shadow-xl group">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20">两亲性淋巴靶向疫苗</span>
+                        <span class="text-xs px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 font-semibold">Phase II 临床在研</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-rose-400 transition">ELI-002 2P / 7P (mKRAS 疫苗)</h3>
+                    <p class="text-slate-400 text-xs mb-4"><strong>研发企业：</strong>Elicio Therapeutics (AMPLIFY-201 / 7P 试验)</p>
+                    
+                    <div class="space-y-3 text-xs text-slate-300">
+                        <div class="bg-slate-800/60 p-3 rounded-lg border border-slate-700/50">
+                            <span class="text-rose-400 font-bold block mb-1"><i class="fa-solid fa-bullseye mr-1"></i> 针对最难突变靶点</span>
+                            90% 以上胰腺癌患者携带 KRAS 突变。ELI-002 结合特定脂质尾部，利用白蛋白搭车效应（Albumin-hitchhiking）直接高效富集递送至引流淋巴结，激活突变 KRAS 特异性 T 细胞。
+                        </div>
+                        <div class="bg-slate-800/60 p-3 rounded-lg border border-slate-700/50">
+                            <span class="text-emerald-400 font-bold block mb-1"><i class="fa-solid fa-chart-line mr-1"></i> 临床数据 (*Nature Medicine*)</span>
+                            <strong>84%</strong> 患者产生强效 T 细胞应答，高应答患者无复发生存期 (RFS) 与总生存期 (OS) 均未达到终点（显著延长），并引发广泛的抗原扩散效应。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pt-5 mt-6 border-t border-slate-800 flex items-center justify-between text-xs">
+                    <span class="text-slate-500">Nature Medicine 2025</span>
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/38195744/" target="_blank" class="text-rose-400 hover:text-rose-300 font-semibold flex items-center">
+                        查看临床论文 <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 卡片 3: 通用型端粒酶与泛癌种疫苗 -->
+            <div class="bg-slate-900 border border-slate-800 hover:border-rose-500/50 rounded-2xl p-6 transition flex flex-col justify-between shadow-xl group">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">通用长寿/肿瘤疫苗</span>
+                        <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold">Phase II / III 探索</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition">mRNA-4157 (V940) & hTERT</h3>
+                    <p class="text-slate-400 text-xs mb-4"><strong>代表机构：</strong>Moderna / 默沙东 (Merck) / 国际多中心</p>
+                    
+                    <div class="space-y-3 text-xs text-slate-300">
+                        <div class="bg-slate-800/60 p-3 rounded-lg border border-slate-700/50">
+                            <span class="text-purple-400 font-bold block mb-1"><i class="fa-solid fa-shield-halved mr-1"></i> 免疫检查点联合策略</span>
+                            肿瘤新抗原 mRNA 疫苗与 PD-1 单抗联合使用，能够彻底打破实体瘤与衰老微环境的免疫抑制屏障，不仅在黑色素瘤中降低 49% 复发死亡风险，正向消化道与胰腺癌拓展。
+                        </div>
+                        <div class="bg-slate-800/60 p-3 rounded-lg border border-slate-700/50">
+                            <span class="text-emerald-400 font-bold block mb-1"><i class="fa-solid fa-dna mr-1"></i> 端粒酶 (hTERT) 通用免疫拦截</span>
+                            85% 以上恶性肿瘤过表达端粒酶逆转录酶。靶向 hTERT 的免疫疫苗通过激发系统性抗原巡逻，成为预防老年恶性肿瘤与衰老细胞逃逸的新型策略。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pt-5 mt-6 border-t border-slate-800 flex items-center justify-between text-xs">
+                    <span class="text-slate-500">ASCO / ESMO 顶会发布</span>
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/38242125/" target="_blank" class="text-purple-400 hover:text-purple-300 font-semibold flex items-center">
+                        查看临床综述 <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 模块三：长寿科技与临床管线时间轴 (Longevity Roadmap) -->
-    <section id="roadmap" class="max-w-7xl mx-auto px-4 py-20">
+    <section id="roadmap" class="max-w-7xl mx-auto px-4 py-20 border-t border-slate-800">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <div class="inline-flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-3">
                 <span>科技成熟度预测</span>
             </div>
             <h2 class="text-3xl font-bold text-white">长寿医学发展路线图 (2024 - 2035+)</h2>
-            <p class="text-slate-400 mt-2 text-sm">从生活方式干预、小分子药物靶向清除，到全身体内表观遗传逆转的进阶时间表。</p>
+            <p class="text-slate-400 mt-2 text-sm">从生活方式干预、肿瘤新抗原疫苗，到全身体内表观遗传逆转的进阶时间表。</p>
         </div>
 
         <div class="relative border-l border-slate-800 ml-4 md:ml-32 space-y-12">
-            <!-- 阶段 1 -->
             <div class="relative pl-8 group">
                 <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-emerald-500 border-4 border-slate-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-1">
                     <span class="text-emerald-400 font-bold text-sm tracking-wider">2024 - 2026 年</span>
-                    <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 w-fit">当前阶段 · 分子代谢与精准测算普及</span>
+                    <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 w-fit">当前阶段 · 分子代谢与肿瘤疫苗破局</span>
                 </div>
-                <h3 class="text-lg font-bold text-white">一代抗衰小分子与多组学生物年龄时钟</h3>
+                <h3 class="text-lg font-bold text-white">一代抗衰分子普及 & 个性化胰腺癌 mRNA 疫苗 II 期推进</h3>
                 <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
-                    基于第二代/第三代 DNA 甲基化时钟（DunedinPACE / PhenoAge）的商用测评普及；NMN、二甲双胍（TAME）与雷帕霉素（PEARL 等）人体临床疗效数据发布。
+                    DNA 甲基化时钟普及商用；BioNTech 个性化胰腺癌 mRNA 疫苗 (Autogene Cevumeran) 与 Elicio KRAS 疫苗开展多中心大型 II 期试验，证明长期 T 细胞记忆应答有效性。
                 </p>
             </div>
 
-            <!-- 阶段 2 -->
             <div class="relative pl-8 group">
                 <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-teal-500 border-4 border-slate-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-1">
                     <span class="text-teal-400 font-bold text-sm tracking-wider">2027 - 2030 年</span>
-                    <span class="text-xs px-2 py-0.5 rounded bg-teal-500/10 text-teal-300 border border-teal-500/20 w-fit">中期突破 · 靶向清除与器官级干预</span>
+                    <span class="text-xs px-2 py-0.5 rounded bg-teal-500/10 text-teal-300 border border-teal-500/20 w-fit">中期突破 · 靶向清除与器官级重编程</span>
                 </div>
                 <h3 class="text-lg font-bold text-white">第二代靶向 Senolytics 与局部基因载体疗法</h3>
                 <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
-                    靶向 CD38、uPAR 的 CAR-T/抗体偶联药物（ADC）清除特异性衰老细胞；局部递送 Yamanaka 因子（AAV 病毒载体）治疗青光眼与视神经衰老进入 Phase II/III。
+                    靶向 CD38、uPAR 的免疫偶联药物清除特异性衰老细胞；局部递送 Yamanaka 因子（AAV 病毒载体）治疗青光眼与视神经衰老进入 Phase II/III。
                 </p>
             </div>
 
-            <!-- 阶段 3 -->
             <div class="relative pl-8 group">
                 <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-cyan-500 border-4 border-slate-950"></div>
                 <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-1">
                     <span class="text-cyan-400 font-bold text-sm tracking-wider">2030 - 2035+ 年</span>
                     <span class="text-xs px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 w-fit">终极范式 · 系统性年龄逆转</span>
                 </div>
-                <h3 class="text-lg font-bold text-white">全身可控表观遗传重编程与衰老疫苗</h3>
+                <h3 class="text-lg font-bold text-white">全身可控表观遗传重编程与抗衰免疫疫苗</h3>
                 <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
                     非病毒小分子化学诱导重编程（Chemical Reprogramming）取得突破，不丧失细胞分化身份实现组织年轻化；衰老细胞特异性抗原疫苗实现定期主动免疫清除。
                 </p>
@@ -392,8 +509,8 @@
     <!-- 模块四：临床前沿动态 (PubMed 自动更新区) -->
     <section id="trials" class="max-w-7xl mx-auto px-4 py-20 border-t border-slate-800">
         <div class="text-center max-w-2xl mx-auto mb-12">
-            <h2 class="text-3xl font-bold text-white">全球抗衰老临床试验前沿</h2>
-            <p class="text-slate-400 mt-2 text-sm">追踪全球顶尖科研机构与医院正在进行的人体干预临床项目与论文前沿。</p>
+            <h2 class="text-3xl font-bold text-white">全球抗衰老与免疫前沿文献</h2>
+            <p class="text-slate-400 mt-2 text-sm">由后台 Python 机器人通过 GitHub Actions 定期同步 PubMed 最新同行评审文献。</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -431,7 +548,7 @@
     </section>
 
     <!-- 模块五：简易生物学年龄与健康跨度雷达测算 -->
-    <section id="calculator" class="max-w-4xl mx-auto px-4 py-20">
+    <section id="calculator" class="max-w-4xl mx-auto px-4 py-20 border-t border-slate-800">
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-2xl">
             <div class="text-center mb-8">
                 <h2 class="text-2xl sm:text-3xl font-bold text-white">健康寿命与生活方式雷达测算</h2>
@@ -511,30 +628,29 @@
         </div>
     </section>
 
-    <!-- 化合物详情抽屉/Modal (Compound Detail Modal) -->
+    <!-- 化合物详情抽屉/Modal -->
     <div id="compoundModal" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 flex items-center justify-center hidden px-4">
         <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeCompoundModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white transition text-xl">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <div id="compoundModalContent">
-                <!-- 动态注入化合物内容 -->
-            </div>
+            <div id="compoundModalContent"></div>
         </div>
     </div>
 
     <!-- 页脚与免责声明 -->
     <footer class="border-t border-slate-800 bg-slate-950 py-12 text-slate-500 text-xs">
         <div class="max-w-7xl mx-auto px-4 space-y-6 text-center">
-            <div class="flex justify-center space-x-6">
+            <div class="flex flex-wrap justify-center gap-6">
                 <a href="#mechanisms" class="hover:text-slate-300">衰老机制模型</a>
                 <a href="#compounds" class="hover:text-slate-300">分子靶点库</a>
+                <a href="#cancer-vaccines" class="hover:text-slate-300">肿瘤疫苗专栏</a>
                 <a href="#roadmap" class="hover:text-slate-300">长寿路线图</a>
                 <a href="#trials" class="hover:text-slate-300">文献数据库API</a>
                 <a href="#" onclick="openModal(); return false;" class="hover:text-slate-300">加入科学通信</a>
             </div>
             <p class="max-w-3xl mx-auto leading-relaxed text-slate-600">
-                <strong>学术与医疗免责声明：</strong>本网站刊载的所有衰老机制、小分子药物、靶点及临床试验信息仅供科学普及、学术交流与生物学研究使用，不构成任何医疗建议、诊断或用药处方。涉及任何处方药或临床干预，请务必咨询专业医疗人员。
+                <strong>学术与医疗免责声明：</strong>本网站刊载的所有衰老机制、肿瘤疫苗、小分子药物及临床试验信息仅供科学普及与生物学学术交流使用，不构成任何医疗建议或治疗方案。涉及任何临床干预，请务必咨询专业医疗人员。
             </p>
             <p>© 2026 BioSpan 极寿生命科学研究网络. 保留所有权利。</p>
         </div>
@@ -552,7 +668,7 @@
                 </div>
                 <h3 class="text-xl font-bold text-white">订阅《衰老与长寿前沿速递》</h3>
                 <p class="text-slate-400 text-xs leading-relaxed">
-                    每周精选 Nature / Cell 衰老生物学文献、全球抗衰化合物临床试验进度及前沿长寿科技指南。
+                    每周精选 Nature / Cell 衰老生物学文献、肿瘤疫苗临床试验进度及前沿长寿科技指南。
                 </p>
             </div>
             <div id="modalForm" class="mt-6 space-y-4">
@@ -632,7 +748,6 @@
             }
         };
 
-        // 弹出化合物详情
         function showCompoundDetail(key) {
             const data = COMPOUND_DATA[key];
             if (!data) return;
@@ -683,13 +798,11 @@
             document.getElementById('compoundModal').classList.add('hidden');
         }
 
-        // 移动端菜单切换
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
             menu.classList.toggle('hidden');
         }
 
-        // 衰老标志 Tabs 过滤
         function filterHallmarks(category) {
             const tabs = document.querySelectorAll('.hallmark-tab');
             tabs.forEach(t => t.className = 'hallmark-tab px-4 py-2 rounded-lg border border-slate-800 bg-slate-900 text-slate-400 hover:text-white transition');
@@ -709,7 +822,6 @@
             });
         }
 
-        // 化合物表格即时搜索与下拉筛选
         function filterCompoundsTable() {
             const query = document.getElementById('compoundSearch').value.toLowerCase().trim();
             const phase = document.getElementById('compoundPhaseFilter').value.toLowerCase();
@@ -723,10 +835,8 @@
             });
         }
 
-        // Chart.js 雷达图全局变量
         let radarChartInstance = null;
 
-        // 生物年龄与 5 维雷达图测算
         function calculateBioAge() {
             const actualAge = parseFloat(document.getElementById('actualAge').value);
             const exercise = parseFloat(document.getElementById('exercise').value);
@@ -765,7 +875,6 @@
                 bioAgeDesc.innerHTML = `您的生物机能处于标准基线水平。若想实现健康跨度跃迁，可逐步探索间歇断食、Zone 2 有氧与规律力量训练。`;
             }
 
-            // 绘制雷达图打分（满分 100 分换算）
             const scoreExercise = Math.max(20, Math.min(100, 80 - exercise * 15));
             const scoreDiet = Math.max(20, Math.min(100, 80 - diet * 15));
             const scoreSleep = Math.max(20, Math.min(100, 80 - sleep * 15));
@@ -818,7 +927,6 @@
             });
         }
 
-        // 订阅弹窗与提交
         function openModal() {
             document.getElementById('subscribeModal').classList.remove('hidden');
             document.getElementById('modalForm').classList.remove('hidden');
