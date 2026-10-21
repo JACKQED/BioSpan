@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioSpan V4.1 极寿 | 实用长寿与健康寿命指南</title>
+    <title>BioSpan V4.3 极寿 | 实用长寿与健康寿命指南</title>
     <meta name="description" content="从运动、营养、睡眠、代谢与心理社交五大维度，提供循证健康长寿指南和生活习惯自评。">
     <meta property="og:title" content="BioSpan 极寿生命科学研究院">
-    <meta property="og:description" content="探索寿命极限，破译衰老与长寿的分子密码。">
+    <meta property="og:description" content="循证健康习惯、长寿五大支柱与个性化健康行动计划。">
     <meta property="og:type" content="website">
     
     <!-- Tailwind CSS & Font Awesome & Chart.js -->
@@ -55,6 +55,40 @@
         #pillars article {background:linear-gradient(150deg,#18324a,#12253c)!important;}
         #calculator > div {background:linear-gradient(155deg,#193149,#11243c)!important;}
         @media (prefers-reduced-motion:reduce){article.bg-slate-900:hover{transform:none;}}
+
+/* V4.3 mobile-first interaction and icon system */
+html {scroll-padding-top:80px} button,a,select {touch-action:manipulation}
+.feature-icon {display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:16px;background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.22);font-size:23px;margin-bottom:14px}
+#pillars article:nth-child(2) .feature-icon,#pillars article:nth-child(4) .feature-icon {background:rgba(56,189,248,.12);border-color:rgba(56,189,248,.24)}
+#pillars article:nth-child(3) .feature-icon {background:rgba(167,139,250,.14);border-color:rgba(167,139,250,.28)}
+#pillars article:nth-child(5) .feature-icon {background:rgba(251,191,36,.12);border-color:rgba(251,191,36,.25)}
+#mobileMenu {box-shadow:0 18px 35px rgba(0,0,0,.32)}
+#mobileMenu a {display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid rgba(148,163,184,.14);border-radius:13px;background:rgba(255,255,255,.035);min-height:52px}
+#mobileMenu a i {width:22px;text-align:center;color:#34d399}
+#mobileMenu a:active {background:rgba(52,211,153,.12)}
+#subscribeModal>div {max-height:calc(100dvh - 24px);overflow-y:auto}
+@media(max-width:639px){
+ body>nav.sticky>div {height:60px}
+ header.gradient-bg {padding:58px 18px 62px!important}
+ header h1 {font-size:clamp(35px,10vw,49px)!important;line-height:1.17!important}
+ header p {font-size:15px!important;line-height:1.85!important}
+ header .hero-actions {display:grid!important;grid-template-columns:1fr!important;gap:11px!important;max-width:420px;margin:auto}
+ header .hero-actions a {display:flex;align-items:center;justify-content:center;min-height:51px;width:100%}
+ #pillars {padding-top:55px;padding-bottom:55px}
+ #pillars .pillars-grid {grid-template-columns:1fr!important;gap:12px!important}
+ #pillars article {display:grid;grid-template-columns:54px 1fr;column-gap:15px;align-items:start;padding:18px!important}
+ #pillars article .feature-icon {grid-row:span 2;width:48px;height:48px;margin:0}
+ #pillars article h3 {margin:0 0 6px!important}
+ #pillars article p {grid-column:2}
+ #calculator {padding-top:52px;padding-bottom:52px}
+ #calculator>div {padding:20px!important}
+ #calculator select {min-height:49px;font-size:16px!important}
+ #guides article {padding:20px!important}
+ #habitResults canvas {max-width:100%!important}
+ #subscribeModal {align-items:flex-end;padding:10px!important}
+ #subscribeModal>div {border-radius:22px 22px 12px 12px;padding:23px!important;width:100%}
+ #subEmail {font-size:16px!important;min-height:50px}
+}
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-emerald-500 selection:text-slate-950">
@@ -68,26 +102,26 @@
             </a>
             
             <div class="hidden lg:flex space-x-6 text-sm font-medium text-slate-300">
-<a href="#pillars" class="hover:text-emerald-400">长寿五大支柱</a><a href="#calculator" class="hover:text-emerald-400">健康习惯评估</a><a href="#guides" class="hover:text-emerald-400">实用长寿指南</a><a href="#science" class="hover:text-emerald-400">科学证据</a></div>
+<a href="#pillars" class="hover:text-emerald-400">长寿五大支柱</a><a href="#calculator" class="hover:text-emerald-400">健康习惯评估</a><a href="#guides" class="hover:text-emerald-400">实用长寿指南</a><a href="#science" class="hover:text-emerald-400">科学证据</a><a href="#newsletter" class="hover:text-emerald-400">每月简报</a></div>
 
             <div class="flex items-center space-x-3">
                 <button onclick="openModal()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-4 py-2 rounded-lg text-sm transition shadow-lg shadow-emerald-500/20">
-                    <i class="fa-regular fa-envelope mr-1.5 hidden sm:inline"></i>订阅简报
+                    <i class="fa-regular fa-envelope mr-1.5 hidden sm:inline"></i>阅读简报
                 </button>
-                <button id="mobileMenuBtn" aria-label="打开导航菜单" aria-expanded="false" onclick="toggleMobileMenu()" class="lg:hidden text-slate-400 hover:text-white p-2 text-xl">
+                <button id="mobileMenuBtn" aria-controls="mobileMenu" aria-label="打开导航菜单" aria-expanded="false" onclick="toggleMobileMenu()" class="lg:hidden text-slate-400 hover:text-white p-2 text-xl">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
 
         <!-- 移动端折叠菜单 -->
-        <div id="mobileMenu" class="hidden lg:hidden px-4 pt-2 pb-4 space-y-2 bg-slate-900 border-b border-slate-800 text-sm font-medium"><a href="#pillars" onclick="toggleMobileMenu()" class="block py-2">长寿五大支柱</a><a href="#calculator" onclick="toggleMobileMenu()" class="block py-2">健康习惯评估</a><a href="#guides" onclick="toggleMobileMenu()" class="block py-2">实用长寿指南</a><a href="#science" onclick="toggleMobileMenu()" class="block py-2">科学证据</a></div>
+        <div id="mobileMenu" class="hidden lg:hidden px-4 pt-3 pb-5 space-y-2 bg-slate-900 border-b border-slate-800 text-sm font-medium"><a href="#pillars" onclick="toggleMobileMenu()" class="block py-2"><i class="fa-solid fa-seedling" aria-hidden="true"></i>长寿五大支柱<i class="fa-solid fa-chevron-right ml-auto text-xs" aria-hidden="true"></i></a><a href="#calculator" onclick="toggleMobileMenu()" class="block py-2"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>健康习惯评估<i class="fa-solid fa-chevron-right ml-auto text-xs" aria-hidden="true"></i></a><a href="#guides" onclick="toggleMobileMenu()" class="block py-2"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i>实用长寿指南<i class="fa-solid fa-chevron-right ml-auto text-xs" aria-hidden="true"></i></a><a href="#science" onclick="toggleMobileMenu()" class="block py-2"><i class="fa-solid fa-flask" aria-hidden="true"></i>科学证据<i class="fa-solid fa-chevron-right ml-auto text-xs" aria-hidden="true"></i></a><a href="#newsletter" onclick="toggleMobileMenu()" class="block py-2"><i class="fa-solid fa-envelope-open-text" aria-hidden="true"></i>每月简报</a></div>
     </nav>
 
     <!-- Hero 区域 -->
-    <header class="gradient-bg py-20 sm:py-28 px-4 text-center relative overflow-hidden"><div class="max-w-4xl mx-auto space-y-6"><div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-4 py-1.5 rounded-full text-emerald-300 text-xs font-semibold">循证健康 · 可执行的日常习惯 · 长期改善</div><h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">活得更长<br><span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">更要活得健康</span></h1><p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">Live Longer. Live Healthier.<br>从运动、营养、睡眠、代谢健康和心理社交出发，找到适合自己的健康长寿行动方向。</p><div class="flex flex-wrap justify-center gap-4 pt-4"><a href="#calculator" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-6 py-3 rounded-lg">开始健康习惯评估 →</a><a href="#pillars" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 font-bold px-6 py-3 rounded-lg">探索五大长寿支柱</a><a href="#guides" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 font-bold px-6 py-3 rounded-lg">阅读实用指南</a></div></div></header>
+    <header class="gradient-bg py-20 sm:py-28 px-4 text-center relative overflow-hidden"><div class="max-w-4xl mx-auto space-y-6"><div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-4 py-1.5 rounded-full text-emerald-300 text-xs font-semibold">循证健康 · 可执行的日常习惯 · 长期改善</div><h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">活得更长<br><span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">更要活得健康</span></h1><p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">Live Longer. Live Healthier.<br>从运动、营养、睡眠、代谢健康和心理社交出发，找到适合自己的健康长寿行动方向。</p><div class="hero-actions flex flex-wrap justify-center gap-4 pt-4"><a href="#calculator" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-6 py-3 rounded-lg"><i class="fa-solid fa-clipboard-check mr-2" aria-hidden="true"></i>开始健康习惯评估 →</a><a href="#pillars" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 font-bold px-6 py-3 rounded-lg"><i class="fa-solid fa-seedling mr-2" aria-hidden="true"></i>探索五大长寿支柱</a><a href="#guides" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 font-bold px-6 py-3 rounded-lg"><i class="fa-solid fa-book-open-reader mr-2" aria-hidden="true"></i>阅读实用指南</a></div></div></header>
 
-<section id="pillars" class="max-w-7xl mx-auto px-4 py-20"><div class="text-center mb-10"><p class="text-emerald-400 text-sm font-semibold mb-2">THE FIVE PILLARS</p><h2 class="text-3xl font-bold">健康长寿的五大支柱</h2><p class="text-slate-400 mt-3">从可以实践的生活方式开始，而不是追求未经证实的逆龄捷径。</p></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4"><article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-500/50"><i class="fa-solid fa-person-walking text-2xl text-emerald-400 mb-5"></i><h3 class="font-bold text-lg mb-3">运动与肌肉</h3><p class="text-slate-400 text-sm leading-relaxed">循序渐进增加有氧活动，并维持力量与平衡能力。</p></article><article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-500/50"><i class="fa-solid fa-carrot text-2xl text-emerald-400 mb-5"></i><h3 class="font-bold text-lg mb-3">营养与饮食</h3><p class="text-slate-400 text-sm leading-relaxed">多样化摄入蔬果、全谷物和优质蛋白，减少超加工食品。</p></article><article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-500/50"><i class="fa-solid fa-moon text-2xl text-emerald-400 mb-5"></i><h3 class="font-bold text-lg mb-3">睡眠与节律</h3><p class="text-slate-400 text-sm leading-relaxed">保持规律作息，成年人通常需要每晚 7–9 小时睡眠。</p></article><article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-500/50"><i class="fa-solid fa-heart-pulse text-2xl text-emerald-400 mb-5"></i><h3 class="font-bold text-lg mb-3">心血管与代谢</h3><p class="text-slate-400 text-sm leading-relaxed">了解血压、血脂和血糖，结合个人风险安排筛查。</p></article><article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-500/50"><i class="fa-solid fa-people-group text-2xl text-emerald-400 mb-5"></i><h3 class="font-bold text-lg mb-3">心理与社交</h3><p class="text-slate-400 text-sm leading-relaxed">管理压力、维持支持性关系和有意义的日常活动。</p></article></div><p class="text-slate-500 text-xs mt-5">科普内容并非个体化诊疗建议；慢性病患者应根据临床情况调整活动与饮食。</p></section><section id="guides" class="bg-slate-900/50 border-y border-slate-800 py-16"><div class="max-w-7xl mx-auto px-4"><h2 class="text-3xl font-bold mb-3">实用长寿指南</h2><p class="text-slate-400 mb-8">三个可以立即开始的习惯方向</p><div class="grid md:grid-cols-3 gap-5"><article class="bg-slate-900 border border-slate-800 rounded-xl p-6"><h3 class="text-lg font-bold text-emerald-400 mb-3">每周活动目标</h3><p class="text-sm text-slate-300">逐步接近每周至少 150 分钟中等强度有氧活动，并安排每周至少两天肌肉力量训练；从适合自己的活动量开始。</p></article><article class="bg-slate-900 border border-slate-800 rounded-xl p-6"><h3 class="text-lg font-bold text-emerald-400 mb-3">建立稳定的睡眠节律</h3><p class="text-sm text-slate-300">尽量保持固定的起床时间、优化睡眠环境。持续失眠或疑似睡眠呼吸暂停时应寻求专业评估。</p></article><article class="bg-slate-900 border border-slate-800 rounded-xl p-6"><h3 class="text-lg font-bold text-emerald-400 mb-3">关注可测量的健康指标</h3><p class="text-sm text-slate-300">根据年龄与个人风险，与医疗人员讨论血压、血脂、血糖等指标及适宜的筛查频率。</p></article></div></div></section><div id="science" class="max-w-7xl mx-auto px-4 pt-16"><p class="text-emerald-400 text-sm font-semibold">RESEARCH LIBRARY</p><h2 class="text-3xl font-bold mt-2">科学证据与前沿研究</h2><p class="text-slate-400 mt-2">以下保留 V3 的衰老机制、化合物和研究专题；早期研究不代表已证实能延长人类寿命。</p><nav class="flex flex-wrap gap-3 mt-5 text-sm"><a href="#mechanisms" class="underline text-emerald-400">衰老机制</a><a href="#compounds" class="underline text-emerald-400">药物研究</a><a href="#cancer-vaccines" class="underline text-emerald-400">肿瘤疫苗</a><a href="#roadmap" class="underline text-emerald-400">技术路线</a><a href="#trials" class="underline text-emerald-400">PubMed 文献</a></nav></div><section id="calculator" class="max-w-5xl mx-auto px-4 py-20"><div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-10"><p class="text-emerald-400 text-sm font-semibold mb-2">HEALTH HABITS CHECK</p><h2 class="text-3xl font-bold">五维健康习惯自评</h2><p class="text-slate-400 mt-3 mb-8">根据自填答案绘制习惯雷达图，并提供优先改善建议。分数仅是本站自评指标，<strong>不是生物年龄、临床风险评分或寿命预测</strong>。</p><div class="grid sm:grid-cols-2 gap-5" id="habitInputs"><label class="block"><span class="block text-sm font-semibold mb-2">运动与力量</span><select id="habit_exercise" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-sm text-white"><option value="100">每周 ≥150 分钟有氧运动，并有力量训练</option><option value="70">有一定规律运动，但未达到上述组合</option><option value="40">偶尔活动</option><option value="15">大部分时间久坐</option></select></label><label class="block"><span class="block text-sm font-semibold mb-2">营养与饮食</span><select id="habit_diet" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-sm text-white"><option value="100">经常摄入蔬果、全谷物和优质蛋白</option><option value="70">总体均衡，偶尔高糖高盐</option><option value="40">经常依赖外卖或加工食品</option><option value="15">长期饮食失衡</option></select></label><label class="block"><span class="block text-sm font-semibold mb-2">睡眠与节律</span><select id="habit_sleep" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-sm text-white"><option value="100">大多数夜晚睡眠充足且规律</option><option value="70">基本规律，偶有不足</option><option value="40">经常睡眠不足或作息不规律</option><option value="15">长期严重睡眠不足</option></select></label><label class="block"><span class="block text-sm font-semibold mb-2">代谢健康管理</span><select id="habit_metabolic" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-sm text-white"><option value="100">按适用建议了解并跟进血压、血脂、血糖</option><option value="70">了解部分指标，偶尔跟进</option><option value="40">很少关注相关指标</option><option value="15">完全不了解自身相关指标</option></select></label><label class="block"><span class="block text-sm font-semibold mb-2">心理与社交</span><select id="habit_social" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-sm text-white"><option value="100">有稳定支持关系与有效减压方式</option><option value="70">总体良好，偶有压力</option><option value="40">经常压力大或社交支持不足</option><option value="15">持续孤立或难以应对压力</option></select></label></div><button onclick="assessHabits()" class="mt-7 w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 rounded-lg">生成我的健康习惯报告</button><div id="habitResults" class="hidden mt-8 border-t border-slate-700 pt-8"><div class="grid md:grid-cols-2 gap-8 items-center"><div><p class="text-slate-400 text-sm">健康习惯达成度（非临床指标）</p><p id="habitScore" class="text-5xl font-extrabold text-emerald-400 my-3">--</p><p id="habitAdvice" class="text-slate-300 text-sm leading-relaxed"></p><p class="text-slate-500 text-xs mt-4">分数来自问卷选项的示意映射，不代表健康状况的医学测量。</p></div><div class="max-w-sm mx-auto w-full"><canvas id="habitRadar" width="350" height="350" aria-label="五维健康习惯雷达图" role="img"></canvas></div></div></div></div>
+<section id="pillars" class="max-w-7xl mx-auto px-4 py-20"><div class="text-center mb-10"><p class="text-emerald-400 text-sm font-semibold mb-2">THE FIVE PILLARS</p><h2 class="text-3xl font-bold">健康长寿的五大支柱</h2><p class="text-slate-400 mt-3">从可以实践的生活方式开始，而不是追求未经证实的逆龄捷径。</p></div><div class="pillars-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4"><article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-500/50"><span class="feature-icon"><i class="fa-solid fa-person-walking text-emerald-400" aria-hidden="true"></i></span><h3 class="font-bold text-lg mb-3">运动与肌肉</h3><p class="text-slate-400 text-sm leading-relaxed">循序渐进增加有氧活动，并维持力量与平衡能力。</p></article><article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-500/50"><span class="feature-icon"><i class="fa-solid fa-carrot text-emerald-400" aria-hidden="true"></i></span><h3 class="font-bold text-lg mb-3">营养与饮食</h3><p class="text-slate-400 text-sm leading-relaxed">多样化摄入蔬果、全谷物和优质蛋白，减少超加工食品。</p></article><article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-500/50"><span class="feature-icon"><i class="fa-solid fa-moon text-emerald-400" aria-hidden="true"></i></span><h3 class="font-bold text-lg mb-3">睡眠与节律</h3><p class="text-slate-400 text-sm leading-relaxed">保持规律作息，成年人通常需要每晚 7–9 小时睡眠。</p></article><article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-500/50"><span class="feature-icon"><i class="fa-solid fa-heart-pulse text-emerald-400" aria-hidden="true"></i></span><h3 class="font-bold text-lg mb-3">心血管与代谢</h3><p class="text-slate-400 text-sm leading-relaxed">了解血压、血脂和血糖，结合个人风险安排筛查。</p></article><article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-500/50"><span class="feature-icon"><i class="fa-solid fa-people-group text-emerald-400" aria-hidden="true"></i></span><h3 class="font-bold text-lg mb-3">心理与社交</h3><p class="text-slate-400 text-sm leading-relaxed">管理压力、维持支持性关系和有意义的日常活动。</p></article></div><p class="text-slate-500 text-xs mt-5">科普内容并非个体化诊疗建议；慢性病患者应根据临床情况调整活动与饮食。</p></section><section id="guides" class="bg-slate-900/50 border-y border-slate-800 py-16"><div class="max-w-7xl mx-auto px-4"><h2 class="text-3xl font-bold mb-3">实用长寿指南</h2><p class="text-slate-400 mb-8">三个可以立即开始的习惯方向</p><div class="grid md:grid-cols-3 gap-5"><article class="bg-slate-900 border border-slate-800 rounded-xl p-6"><h3 class="text-lg font-bold text-emerald-400 mb-3"><i class="fa-solid fa-person-running mr-2" aria-hidden="true"></i>每周活动目标</h3><p class="text-sm text-slate-300">逐步接近每周至少 150 分钟中等强度有氧活动，并安排每周至少两天肌肉力量训练；从适合自己的活动量开始。</p></article><article class="bg-slate-900 border border-slate-800 rounded-xl p-6"><h3 class="text-lg font-bold text-emerald-400 mb-3"><i class="fa-solid fa-bed mr-2" aria-hidden="true"></i>建立稳定的睡眠节律</h3><p class="text-sm text-slate-300">尽量保持固定的起床时间、优化睡眠环境。持续失眠或疑似睡眠呼吸暂停时应寻求专业评估。</p></article><article class="bg-slate-900 border border-slate-800 rounded-xl p-6"><h3 class="text-lg font-bold text-emerald-400 mb-3"><i class="fa-solid fa-heart-circle-check mr-2" aria-hidden="true"></i>关注可测量的健康指标</h3><p class="text-sm text-slate-300">根据年龄与个人风险，与医疗人员讨论血压、血脂、血糖等指标及适宜的筛查频率。</p></article></div></div></section><div id="science" class="max-w-7xl mx-auto px-4 pt-16"><p class="text-emerald-400 text-sm font-semibold">RESEARCH LIBRARY</p><h2 class="text-3xl font-bold mt-2">科学证据与前沿研究</h2><p class="text-slate-400 mt-2">以下保留 V3 的衰老机制、化合物和研究专题；早期研究不代表已证实能延长人类寿命。</p><nav class="flex flex-wrap gap-3 mt-5 text-sm"><a href="#mechanisms" class="underline text-emerald-400">衰老机制</a><a href="#compounds" class="underline text-emerald-400">药物研究</a><a href="#cancer-vaccines" class="underline text-emerald-400">肿瘤疫苗</a><a href="#roadmap" class="underline text-emerald-400">技术路线</a><a href="#trials" class="underline text-emerald-400">PubMed 文献</a></nav></div><section id="calculator" class="max-w-5xl mx-auto px-4 py-20"><div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-10"><p class="text-emerald-400 text-sm font-semibold mb-2">HEALTH HABITS CHECK</p><h2 class="text-3xl font-bold">五维健康习惯自评</h2><p class="text-slate-400 mt-3 mb-8">根据自填答案绘制习惯雷达图，并提供优先改善建议。分数仅是本站自评指标，<strong>不是生物年龄、临床风险评分或寿命预测</strong>。</p><div class="grid sm:grid-cols-2 gap-5" id="habitInputs"><label class="block"><span class="block text-sm font-semibold mb-2">运动与力量</span><select id="habit_exercise" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-sm text-white"><option value="100">每周 ≥150 分钟有氧运动，并有力量训练</option><option value="70">有一定规律运动，但未达到上述组合</option><option value="40">偶尔活动</option><option value="15">大部分时间久坐</option></select></label><label class="block"><span class="block text-sm font-semibold mb-2">营养与饮食</span><select id="habit_diet" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-sm text-white"><option value="100">经常摄入蔬果、全谷物和优质蛋白</option><option value="70">总体均衡，偶尔高糖高盐</option><option value="40">经常依赖外卖或加工食品</option><option value="15">长期饮食失衡</option></select></label><label class="block"><span class="block text-sm font-semibold mb-2">睡眠与节律</span><select id="habit_sleep" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-sm text-white"><option value="100">大多数夜晚睡眠充足且规律</option><option value="70">基本规律，偶有不足</option><option value="40">经常睡眠不足或作息不规律</option><option value="15">长期严重睡眠不足</option></select></label><label class="block"><span class="block text-sm font-semibold mb-2">代谢健康管理</span><select id="habit_metabolic" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-sm text-white"><option value="100">按适用建议了解并跟进血压、血脂、血糖</option><option value="70">了解部分指标，偶尔跟进</option><option value="40">很少关注相关指标</option><option value="15">完全不了解自身相关指标</option></select></label><label class="block"><span class="block text-sm font-semibold mb-2">心理与社交</span><select id="habit_social" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-sm text-white"><option value="100">有稳定支持关系与有效减压方式</option><option value="70">总体良好，偶有压力</option><option value="40">经常压力大或社交支持不足</option><option value="15">持续孤立或难以应对压力</option></select></label></div><button onclick="assessHabits()" class="mt-7 w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 rounded-lg"><i class="fa-solid fa-chart-pie mr-2" aria-hidden="true"></i>生成我的健康习惯报告</button><div id="habitResults" class="hidden mt-8 border-t border-slate-700 pt-8"><div class="grid md:grid-cols-2 gap-8 items-center"><div><p class="text-slate-400 text-sm">健康习惯达成度（非临床指标）</p><p id="habitScore" class="text-5xl font-extrabold text-emerald-400 my-3">--</p><p id="habitAdvice" class="text-slate-300 text-sm leading-relaxed"></p><p class="text-slate-500 text-xs mt-4">分数来自问卷选项的示意映射，不代表健康状况的医学测量。</p></div><div class="max-w-sm mx-auto w-full"><canvas id="habitRadar" width="350" height="350" aria-label="五维健康习惯雷达图" role="img"></canvas></div></div></div></div>
 <div id="actionPlan" class="hidden mt-8 border-t border-slate-700 pt-7" aria-live="polite">
   <div class="flex flex-wrap items-center justify-between gap-3 mb-3"><div><p class="text-emerald-400 text-xs font-semibold">MY HEALTHSPAN PLAN</p><h3 class="text-xl font-bold">我的健康行动计划</h3></div><button type="button" onclick="resetPlanProgress()" class="text-xs border border-slate-600 rounded-lg px-3 py-2 hover:bg-slate-800">清除本地进度</button></div>
   <p id="planIntro" class="text-sm text-slate-400 mb-5"></p>
@@ -575,7 +609,7 @@
                 <a href="#cancer-vaccines" class="hover:text-slate-300">肿瘤疫苗专栏</a>
                 <a href="#roadmap" class="hover:text-slate-300">长寿路线图</a>
                 <a href="#trials" class="hover:text-slate-300">文献数据库API</a>
-                <a href="#" onclick="openModal(); return false;" class="hover:text-slate-300">加入科学通信</a>
+                <a href="#" onclick="openModal(); return false;" class="hover:text-slate-300">邮件提醒申请</a>
             </div>
             <p class="max-w-3xl mx-auto leading-relaxed text-slate-600">
                 <strong>学术与医疗免责声明：</strong>本网站刊载的所有衰老机制、肿瘤疫苗、小分子药物及临床试验信息仅供科学普及与生物学学术交流使用，不构成任何医疗建议或治疗方案。涉及任何临床干预，请务必咨询专业医疗人员。
@@ -584,37 +618,31 @@
         </div>
     </footer>
 
-    <!-- 订阅弹窗组件 (Modal) -->
-    <div id="subscribeModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden px-4" role="dialog" aria-modal="true" aria-label="订阅科学简报">
-        <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-            <div class="text-center space-y-3">
-                <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-xl">
-                    <i class="fa-regular fa-envelope-open"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white">订阅《BioSpan 健康长寿简报》</h3>
-                <p class="text-slate-400 text-xs leading-relaxed">
-                    分享运动、营养、睡眠与代谢健康相关的循证指南，以及值得关注的长寿研究。
-                </p>
-            </div>
-            <div id="modalForm" class="mt-6 space-y-4">
-                <div>
-                    <label class="block text-xs text-slate-300 mb-1">您的电子邮箱</label>
-                    <input id="subEmail" type="email" placeholder="name@domain.com" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500">
-                </div>
-                <button onclick="submitSubscription()" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-2.5 rounded-lg text-sm transition shadow-lg shadow-emerald-500/20">
-                    立即免费订阅
-                </button>
-            </div>
-            <p id="subscriptionError" role="alert" class="text-rose-400 text-xs mt-2 hidden"></p>
-            <div id="modalSuccess" class="mt-6 text-center space-y-2 hidden">
-                <div class="text-emerald-400 text-sm font-semibold">🎉 订阅成功！</div>
-                <p class="text-slate-400 text-xs">欢迎加入长寿科研社区，提交已被表单服务接受；后续简报发送取决于站点运营配置。</p>
-                <button onclick="closeModal()" class="mt-3 text-xs text-slate-400 hover:text-white underline">关闭窗口</button>
-            </div>
-        </div>
+
+<section id="newsletter" class="max-w-7xl mx-auto px-4 py-16" aria-labelledby="newsletterTitle">
+<div class="rounded-3xl border border-emerald-500/25 bg-gradient-to-br from-slate-900 via-slate-900 to-teal-950 p-5 sm:p-10">
+<div class="flex flex-wrap items-center gap-3 mb-3"><span class="text-emerald-400 text-sm font-bold tracking-wider">BIOSPAN MONTHLY</span><span class="text-xs text-slate-300 bg-emerald-500/10 px-3 py-1 rounded-full"><i class="fa-solid fa-book-open mr-1"></i>12期年度健康专题</span></div>
+<h2 id="newsletterTitle" class="text-3xl font-bold text-white">每月长寿健康简报</h2>
+<p class="text-slate-300 text-sm sm:text-base mt-3 max-w-3xl">每个月自动展示不同的循证健康主题。免费在线阅读，无需登录；也可以复制内容或通过邮件分享。注意：此简易版不会自动向订阅者群发邮件。</p>
+<div class="grid lg:grid-cols-5 gap-6 mt-8"><div class="lg:col-span-3 bg-slate-950/60 border border-slate-700 rounded-2xl p-5 sm:p-7">
+<div class="flex flex-wrap items-center justify-between gap-3 mb-4"><span id="issueLabel" class="text-emerald-400 font-semibold text-sm"></span><span class="text-slate-400 text-xs"><i class="fa-solid fa-calendar-days mr-1"></i>按本地月份自动切换</span></div>
+<div class="flex gap-4 items-start"><span id="issueIcon" class="w-12 h-12 rounded-xl bg-emerald-500/15 text-emerald-300 flex items-center justify-center text-2xl shrink-0"></span><div><h3 id="issueTitle" class="text-2xl font-bold text-white"></h3><p id="issueSubtitle" class="text-emerald-200 mt-2"></p></div></div>
+<p id="issueSummary" class="text-slate-200 leading-7 mt-5"></p><div class="mt-5 bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-4"><p class="text-emerald-300 font-semibold text-sm mb-2"><i class="fa-solid fa-list-check mr-2"></i>本月行动建议</p><p id="issueAction" class="text-slate-200 text-sm leading-6"></p></div>
+<p class="text-slate-400 text-xs mt-5">延伸阅读：<a id="issueSource" class="text-cyan-300 underline break-words" target="_blank" rel="noopener noreferrer"></a></p>
+<div class="flex flex-wrap gap-3 mt-6"><button onclick="copyIssue()" class="px-5 py-3 rounded-xl bg-emerald-500 text-slate-950 font-bold hover:bg-emerald-400 min-h-11"><i class="fa-regular fa-copy mr-2"></i>复制本期简报</button><button onclick="shareIssue()" class="px-5 py-3 rounded-xl bg-slate-800 border border-slate-600 hover:bg-slate-700 min-h-11"><i class="fa-regular fa-envelope mr-2"></i>邮件分享</button></div><p id="issueStatus" class="text-sm text-emerald-300 mt-3" aria-live="polite"></p>
+</div><div class="lg:col-span-2 bg-slate-950/45 border border-slate-700 rounded-2xl p-5 sm:p-6"><h3 class="font-bold text-lg mb-2"><i class="fa-solid fa-calendar mr-2 text-cyan-300"></i>查看全年12期</h3><p class="text-slate-400 text-xs mb-4">选择任意月份查看历史或未来主题；页面初次打开时默认显示当月。</p><label for="issueSelect" class="text-slate-300 text-sm block mb-2">选择简报月份</label><select id="issueSelect" onchange="renderIssue(Number(this.value))" class="w-full bg-slate-800 text-white border border-slate-600 rounded-xl p-3 min-h-12"></select><div id="issueList" class="grid grid-cols-2 gap-2 mt-5"></div><button onclick="openModal()" class="mt-6 w-full min-h-12 bg-cyan-500/15 border border-cyan-400/30 text-cyan-200 rounded-xl font-semibold hover:bg-cyan-500/25"><i class="fa-regular fa-envelope mr-2"></i>申请邮件提醒</button><p class="text-slate-500 text-xs mt-3">邮件提醒需要访客使用自己的邮件应用发送申请，本站不会自动收集邮箱。</p></div></div>
+<p class="text-slate-500 text-xs mt-5">健康科普，不构成个体诊疗建议。简报为预先编写的常青内容，不代表当月最新医学研究。</p></div></section>
+    <!-- 邮件申请弹窗：不收集或储存访客数据 -->
+    <div id="subscribeModal" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 hidden items-center justify-center px-3" role="dialog" aria-modal="true" aria-label="邮件提醒申请">
+      <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+        <button onclick="closeModal()" aria-label="关闭" class="absolute top-3 right-3 p-3 text-slate-300"><i class="fa-solid fa-xmark"></i></button>
+        <div class="text-center"><i class="fa-regular fa-envelope-open text-3xl text-emerald-400"></i><h3 class="text-xl font-bold mt-3">申请 BioSpan 简报提醒</h3></div>
+        <p class="text-slate-300 text-sm mt-4 leading-6">简易版没有自动邮件订阅系统。点击下方按钮将打开你的邮件应用，生成一封订阅申请；你需要亲自点击发送。<strong>此操作不会自动开通定期群发。</strong></p>
+        <p class="text-amber-200 text-xs mt-3">网站管理员须先在代码中设置收件邮箱，按钮才能使用。</p>
+        <button id="requestMailBtn" onclick="requestEmailSubscription()" class="w-full mt-5 py-3 bg-emerald-500 text-slate-950 rounded-xl font-bold min-h-12">打开邮件应用，发送申请</button>
+        <p id="subscriptionError" role="status" class="text-amber-300 text-xs mt-3" aria-live="polite"></p>
+        <a href="#newsletter" onclick="closeModal()" class="block text-center mt-5 text-cyan-300 underline text-sm">或者直接在线阅读每月简报</a>
+      </div>
     </div>
 
     <!-- 核心交互脚本 -->
@@ -729,7 +757,12 @@
 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
+            const isOpen = menu.classList.toggle('hidden') === false;
+            const btn = document.getElementById('mobileMenuBtn');
+            btn.setAttribute('aria-expanded', String(isOpen));
+            btn.setAttribute('aria-label', isOpen ? '关闭导航菜单' : '打开导航菜单');
+            const icon = btn.querySelector('i');
+            if (icon) icon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
         }
 
         function filterHallmarks(category) {
@@ -837,46 +870,80 @@
             renderPlan();
         }
 
+        // 只需修改下面一行：填入网站管理员的真实邮箱；不填则不启用邮件申请。
+        const BIOSPAN_CONTACT_EMAIL = 'YOUR_EMAIL@example.com';
+        const BIOSPAN_ISSUES = [{"title":"运动与肌肉","icon":"person-running","subtitle":"运动是健康老龄化的重要基础","summary":"从步行、骑行或游泳等适合自己的活动开始；逐步争取每周150分钟中等强度活动，并在至少两天安排力量训练。","action":"本周选三天各走20分钟；做两次安全的椅子起立或弹力带训练。","source":"WHO《身体活动和久坐行为指南》：https://www.who.int/publications/i/item/9789240015128"},{"title":"睡眠与昼夜节律","icon":"moon","subtitle":"规律比偶尔补觉更容易长期坚持","summary":"多数成年人需要每晚约7–9小时睡眠。固定起床时间，减少睡前强光与酒精，营造安静、凉爽的环境。","action":"连续七天记录入睡、起床时间；先固定起床时间。","source":"CDC 睡眠与健康：https://www.cdc.gov/sleep/"},{"title":"营养与饮食结构","icon":"carrot","subtitle":"把注意力放在长期饮食模式","summary":"多选择蔬菜、水果、豆类、全谷物、坚果与适量优质蛋白；减少高盐、含糖饮料和超加工食品。","action":"本周把三顿餐中的一种精制谷物换成全谷物；每天增加一份蔬菜。","source":"WHO 健康饮食：https://www.who.int/news-room/fact-sheets/detail/healthy-diet"},{"title":"心血管健康","icon":"heart-pulse","subtitle":"了解自己的指标，重视长期管理","summary":"血压、血脂、吸烟状况和活动习惯共同影响心血管风险。筛查和治疗目标应由医生根据个人风险决定。","action":"记录最近一次血压与血脂检查日期；如有疑问预约常规体检。","source":"美国心脏协会 Life’s Essential 8：https://www.heart.org/en/healthy-living/healthy-lifestyle/lifes-essential-8"},{"title":"大脑与认知健康","icon":"brain","subtitle":"认知健康离不开全身健康","summary":"保持运动、睡眠、社交和心血管风险管理；持续学习和参与有意义的活动有助于生活质量。","action":"本周安排一次学习活动和一次与朋友或家人的深入交流。","source":"美国国家老龄研究所：https://www.nia.nih.gov/health/brain-health"},{"title":"血糖与代谢健康","icon":"chart-line","subtitle":"健康习惯比单一“神奇指标”更重要","summary":"均衡饮食、规律活动和充足睡眠有助于代谢健康。是否需要检测血糖或HbA1c应结合年龄和风险因素讨论。","action":"每餐后尝试适量散步；了解自己的常规检查计划。","source":"CDC 糖尿病预防：https://www.cdc.gov/diabetes/prevention/"},{"title":"平衡能力与跌倒预防","icon":"person-walking","subtitle":"长寿也需要行动能力","summary":"力量、平衡、视力、居家环境与药物评估都可能影响跌倒风险，尤其对老年人更重要。","action":"检查家中地毯与夜间照明；在安全条件下练习扶椅单脚站立。","source":"CDC STEADI：https://www.cdc.gov/steadi/"},{"title":"心理健康与社会联系","icon":"people-group","subtitle":"良好的联系也是健康资源","summary":"长期压力和孤独可能影响健康。培养稳定的人际关系、可持续的减压习惯，必要时寻求专业支持。","action":"主动联系一位朋友；为每天安排十分钟放松时间。","source":"美国公共卫生局社会联系资源：https://www.hhs.gov/surgeongeneral/priorities/connection/"},{"title":"健康筛查与预防","icon":"shield-heart","subtitle":"预防不等于做越多检查越好","summary":"疫苗、癌症筛查和常规健康评估应依据年龄、风险、既往病史和当地临床指南个体化决定。","action":"整理疫苗和筛查记录，准备下次门诊想问的三个问题。","source":"USPSTF 建议：https://www.uspreventiveservicestaskforce.org/uspstf/"},{"title":"骨骼健康","icon":"bone","subtitle":"维持骨骼与肌肉共同重要","summary":"适合自身的负重活动、力量训练、均衡营养及跌倒预防对骨骼健康有帮助；是否检查骨密度取决于风险。","action":"本周安排两次安全的力量活动；检查日常饮食是否多样。","source":"NIH 骨骼健康：https://www.niams.nih.gov/health-topics/bone-health"},{"title":"健康习惯的长期坚持","icon":"calendar-check","subtitle":"小改变比短期冲刺更有价值","summary":"为运动、饮食和睡眠设置具体、可执行的目标，定期回顾，遇到中断时温和恢复。","action":"选择一个最容易完成的健康习惯，连续执行七天并记录。","source":"CDC 健康生活方式：https://www.cdc.gov/physical-activity-basics/"},{"title":"年度健康复盘","icon":"clipboard-check","subtitle":"用一年的数据指导下一年","summary":"回顾睡眠、运动、饮食、体检和心理社交习惯的变化；不要把单次自评分数当作临床诊断。","action":"写下今年最有效的两个习惯，以及明年想调整的一件事。","source":"WHO 健康老龄化：https://www.who.int/health-topics/ageing"}];
+        let activeIssue = new Date().getMonth();
+        function issueText(index) {
+            const v = BIOSPAN_ISSUES[index];
+            return `BioSpan 长寿健康简报 | 第${index+1}期：${v.title}\n\n${v.subtitle}\n\n${v.summary}\n\n本月行动：${v.action}\n\n参考资料：${v.source}\n\n更多内容：${location.origin + location.pathname}#newsletter\n\n健康科普，不构成医疗建议。`;
+        }
+        function renderIssue(index) {
+            activeIssue = Math.max(0,Math.min(11,index));
+            const v = BIOSPAN_ISSUES[activeIssue];
+            document.getElementById('issueLabel').textContent = `第 ${activeIssue+1} 期 · ${activeIssue+1} 月专题`;
+            document.getElementById('issueIcon').innerHTML = `<i class="fa-solid fa-${v.icon}" aria-hidden="true"></i>`;
+            document.getElementById('issueTitle').textContent = v.title;
+            document.getElementById('issueSubtitle').textContent = v.subtitle;
+            document.getElementById('issueSummary').textContent = v.summary;
+            document.getElementById('issueAction').textContent = v.action;
+            const link = document.getElementById('issueSource');
+            const parts=v.source.split('：'); link.textContent=parts[0];link.href=parts.slice(1).join('：');
+            document.getElementById('issueSelect').value=String(activeIssue);
+            document.querySelectorAll('[data-issue]').forEach(el=>{
+                const selected=Number(el.dataset.issue)===activeIssue;
+                el.classList.toggle('border-emerald-400',selected);
+                el.classList.toggle('text-emerald-300',selected);
+                el.setAttribute('aria-pressed',String(selected));
+            });
+            document.getElementById('issueStatus').textContent='';
+        }
+        function initNewsletter() {
+            const select=document.getElementById('issueSelect');
+            const list=document.getElementById('issueList');
+            BIOSPAN_ISSUES.forEach((v,i)=>{
+                const opt=document.createElement('option');opt.value=i;opt.textContent=`${i+1}月 · ${v.title}`;select.appendChild(opt);
+                const btn=document.createElement('button');btn.type='button';btn.dataset.issue=String(i);
+                btn.className='text-left border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-300 hover:border-emerald-400 min-h-11';
+                btn.textContent=`${i+1}月 · ${v.title}`;btn.onclick=()=>renderIssue(i);list.appendChild(btn);
+            });
+            renderIssue(new Date().getMonth());
+        }
+        async function copyIssue() {
+            const message=document.getElementById('issueStatus');
+            try { await navigator.clipboard.writeText(issueText(activeIssue));message.textContent='已复制本期内容。'; }
+            catch (_) { message.textContent='浏览器未允许自动复制，请手动选择页面文字复制。'; }
+        }
+        function shareIssue() {
+            const subject=encodeURIComponent(`BioSpan 长寿健康简报 · ${BIOSPAN_ISSUES[activeIssue].title}`);
+            window.location.href=`mailto:?subject=${subject}&body=${encodeURIComponent(issueText(activeIssue))}`;
+        }
         function openModal() {
-            document.getElementById('subscribeModal').classList.remove('hidden');
-            document.getElementById('modalForm').classList.remove('hidden');
-            document.getElementById('modalSuccess').classList.add('hidden');
+            const modal=document.getElementById('subscribeModal');modal.classList.remove('hidden');modal.classList.add('flex');
+            document.getElementById('subscriptionError').textContent='';
+            document.getElementById('requestMailBtn').focus();
         }
         function closeModal() {
-            document.getElementById('subscribeModal').classList.add('hidden');
+            const modal=document.getElementById('subscribeModal');modal.classList.add('hidden');modal.classList.remove('flex');
         }
-        async function submitSubscription(e) {
-            if (e) e.preventDefault();
-            const input = document.getElementById('subEmail');
-            const email = input.value.trim();
-            const error = document.getElementById('subscriptionError');
-            error.classList.add('hidden');
-            if (!input.checkValidity() || !email) {
-                error.textContent = '请输入有效的邮箱地址。';
-                error.classList.remove('hidden');
-                return;
-            }
-            const button = document.querySelector('#modalForm button');
-            button.disabled = true;
-            button.textContent = '正在提交…';
-            try {
-                const response = await fetch('https://formspree.io/f/xbjnqovk', {
-                    method: 'POST',
-                    headers: {'Content-Type':'application/json','Accept':'application/json'},
-                    body: JSON.stringify({email, site:'BioSpan Newsletter'})
-                });
-                if (!response.ok) throw new Error('HTTP ' + response.status);
-                document.getElementById('modalForm').classList.add('hidden');
-                document.getElementById('modalSuccess').classList.remove('hidden');
-                input.value = '';
-            } catch (err) {
-                error.textContent = '订阅未确认成功，请稍后重试。';
-                error.classList.remove('hidden');
-            } finally {
-                button.disabled = false;
-                button.textContent = '立即免费订阅';
-            }
+        function requestEmailSubscription() {
+            const valid=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(BIOSPAN_CONTACT_EMAIL) && !BIOSPAN_CONTACT_EMAIL.startsWith('YOUR_EMAIL');
+            if(!valid) {document.getElementById('subscriptionError').textContent='管理员尚未配置收件邮箱。请先在线阅读简报。';return;}
+            const subject=encodeURIComponent('BioSpan 简报订阅申请');
+            const body=encodeURIComponent('你好，我希望申请接收 BioSpan 健康长寿简报。\n\n请回复此邮件告知后续安排。\n\n（此邮件由本人主动发送。）');
+            window.location.href=`mailto:${BIOSPAN_CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+            document.getElementById('subscriptionError').textContent='邮件应用已尝试打开。请在邮件应用中手动点击发送；如果没有打开，请检查设备邮件设置。';
         }
+        initNewsletter();
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (!document.getElementById('subscribeModal').classList.contains('hidden')) closeModal();
+                if (!document.getElementById('mobileMenu').classList.contains('hidden')) toggleMobileMenu();
+            }
+        });
+        document.getElementById('subscribeModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
     </script>
 </body>
 </html>
