@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioSpan 极寿生命科学研究院 | Longevity & Anti-Aging Research Hub</title>
-    <meta name="description" content="汇集全球衰老生物学（Geroscience）、肿瘤疫苗前沿、延寿小分子化合物与最新同行评审临床研究数据。">
+    <title>BioSpan 极寿 | 实用长寿与健康寿命指南</title>
+    <meta name="description" content="从运动、营养、睡眠、代谢与心理社交五大维度，提供循证健康长寿指南和生活习惯自评。">
     <meta property="og:title" content="BioSpan 极寿生命科学研究院">
     <meta property="og:description" content="探索寿命极限，破译衰老与长寿的分子密码。">
     <meta property="og:type" content="website">
@@ -41,92 +41,27 @@
                 <span class="text-xl font-extrabold tracking-wider text-white">BIO<span class="text-emerald-400">SPAN</span></span>
             </a>
             
-            <div class="hidden lg:flex space-x-7 text-sm font-medium text-slate-300">
-                <a href="#mechanisms" class="hover:text-emerald-400 transition">衰老机制</a>
-                <a href="#compounds" class="hover:text-emerald-400 transition">抗衰分子库</a>
-                <a href="#cancer-vaccines" class="hover:text-emerald-400 transition flex items-center">
-                    <span>肿瘤疫苗</span>
-                    <span class="ml-1.5 px-1.5 py-0.2 bg-rose-500/20 text-rose-400 text-[10px] rounded border border-rose-500/30">前沿</span>
-                </a>
-                <a href="#roadmap" class="hover:text-emerald-400 transition">技术路线图</a>
-                <a href="#trials" class="hover:text-emerald-400 transition">临床文献</a>
-                <a href="#calculator" class="hover:text-emerald-400 transition">年龄雷达测算</a>
-            </div>
+            <div class="hidden lg:flex space-x-6 text-sm font-medium text-slate-300">
+<a href="#pillars" class="hover:text-emerald-400">长寿五大支柱</a><a href="#calculator" class="hover:text-emerald-400">健康习惯评估</a><a href="#guides" class="hover:text-emerald-400">实用长寿指南</a><a href="#science" class="hover:text-emerald-400">科学证据</a></div>
 
             <div class="flex items-center space-x-3">
                 <button onclick="openModal()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-4 py-2 rounded-lg text-sm transition shadow-lg shadow-emerald-500/20">
                     <i class="fa-regular fa-envelope mr-1.5 hidden sm:inline"></i>订阅简报
                 </button>
-                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden text-slate-400 hover:text-white p-2 text-xl">
+                <button id="mobileMenuBtn" aria-label="打开导航菜单" aria-expanded="false" onclick="toggleMobileMenu()" class="lg:hidden text-slate-400 hover:text-white p-2 text-xl">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
 
         <!-- 移动端折叠菜单 -->
-        <div id="mobileMenu" class="hidden lg:hidden px-4 pt-2 pb-4 space-y-2 bg-slate-900 border-b border-slate-800 text-sm font-medium">
-            <a href="#mechanisms" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-emerald-400">衰老机制 (12 Hallmarks)</a>
-            <a href="#compounds" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-emerald-400">抗衰分子库 (详情抽屉)</a>
-            <a href="#cancer-vaccines" onclick="toggleMobileMenu()" class="block py-2 text-rose-400 hover:text-rose-300">🔥 肿瘤与胰腺癌疫苗专栏</a>
-            <a href="#roadmap" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-emerald-400">长寿技术路线图</a>
-            <a href="#trials" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-emerald-400">临床前沿动态</a>
-            <a href="#calculator" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-emerald-400">生物年龄雷达测算</a>
-        </div>
+        <div id="mobileMenu" class="hidden lg:hidden px-4 pt-2 pb-4 space-y-2 bg-slate-900 border-b border-slate-800 text-sm font-medium"><a href="#pillars" onclick="toggleMobileMenu()" class="block py-2">长寿五大支柱</a><a href="#calculator" onclick="toggleMobileMenu()" class="block py-2">健康习惯评估</a><a href="#guides" onclick="toggleMobileMenu()" class="block py-2">实用长寿指南</a><a href="#science" onclick="toggleMobileMenu()" class="block py-2">科学证据</a></div>
     </nav>
 
     <!-- Hero 区域 -->
-    <header class="gradient-bg py-20 sm:py-28 px-4 text-center relative overflow-hidden">
-        <div class="max-w-4xl mx-auto space-y-6">
-            <div class="inline-flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full text-emerald-400 text-xs font-semibold uppercase tracking-wider">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>严谨 · 实证 · 衰老生物学与肿瘤免疫</span>
-            </div>
-            <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
-                探索寿命极限 <br><span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">破译衰老与长寿的分子密码</span>
-            </h1>
-            <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-                汇集衰老生物学前沿机理、胰腺癌/肿瘤新抗原疫苗、延寿化合物与最新同行评审临床试验数据。
-            </p>
-            <div class="flex flex-wrap justify-center gap-4 pt-4">
-                <a href="#cancer-vaccines" class="bg-rose-500 hover:bg-rose-400 text-white font-bold px-6 py-3 rounded-lg transition flex items-center space-x-2 shadow-lg shadow-rose-500/20">
-                    <i class="fa-solid fa-shield-virus"></i>
-                    <span>查看胰腺癌疫苗专栏</span>
-                </a>
-                <a href="#compounds" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-6 py-3 rounded-lg transition flex items-center space-x-2 shadow-lg shadow-emerald-500/20">
-                    <i class="fa-solid fa-flask"></i>
-                    <span>查阅化合物数据库</span>
-                </a>
-                <a href="#calculator" class="bg-slate-800 hover:bg-slate-700 text-white font-medium px-6 py-3 rounded-lg border border-slate-700 transition flex items-center space-x-2">
-                    <i class="fa-solid fa-chart-pie text-slate-400"></i>
-                    <span>生物年龄多维评估</span>
-                </a>
-            </div>
-        </div>
-    </header>
+    <header class="gradient-bg py-20 sm:py-28 px-4 text-center relative overflow-hidden"><div class="max-w-4xl mx-auto space-y-6"><div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-4 py-1.5 rounded-full text-emerald-300 text-xs font-semibold">循证健康 · 可执行的日常习惯 · 长期改善</div><h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">活得更长<br><span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">更要活得健康</span></h1><p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">Live Longer. Live Healthier.<br>从运动、营养、睡眠、代谢健康和心理社交出发，找到适合自己的健康长寿行动方向。</p><div class="flex flex-wrap justify-center gap-4 pt-4"><a href="#calculator" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-6 py-3 rounded-lg">开始健康习惯评估 →</a><a href="#pillars" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 font-bold px-6 py-3 rounded-lg">探索五大长寿支柱</a><a href="#guides" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 font-bold px-6 py-3 rounded-lg">阅读实用指南</a></div></div></header>
 
-    <!-- 核心统计指标 -->
-    <section class="max-w-7xl mx-auto px-4 -mt-10">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-xl backdrop-blur text-center shadow-lg">
-                <div class="text-3xl font-extrabold text-emerald-400">12</div>
-                <div class="text-xs text-slate-400 mt-1 font-medium">核心衰老生物标志</div>
-            </div>
-            <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-xl backdrop-blur text-center shadow-lg">
-                <div class="text-3xl font-extrabold text-rose-400">7/8</div>
-                <div class="text-xs text-slate-400 mt-1 font-medium">早期研究应答者样本（非总体疗效）</div>
-            </div>
-            <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-xl backdrop-blur text-center shadow-lg">
-                <div class="text-3xl font-extrabold text-cyan-400">PubMed</div>
-                <div class="text-xs text-slate-400 mt-1 font-medium">文献研究入口</div>
-            </div>
-            <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-xl backdrop-blur text-center shadow-lg">
-                <div class="text-3xl font-extrabold text-purple-400">循证</div>
-                <div class="text-xs text-slate-400 mt-1 font-medium">研究证据分级解读</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 模块一：衰老的 12 大生物学标志 -->
+<section id="pillars" class="max-w-7xl mx-auto px-4 py-20"><div class="text-center mb-10"><p class="text-emerald-400 text-sm font-semibold mb-2">THE FIVE PILLARS</p><h2 class="text-3xl font-bold">健康长寿的五大支柱</h2><p class="text-slate-400 mt-3">从可以实践的生活方式开始，而不是追求未经证实的逆龄捷径。</p></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4"><article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-500/50"><i class="fa-solid fa-person-walking text-2xl text-emerald-400 mb-5"></i><h3 class="font-bold text-lg mb-3">运动与肌肉</h3><p class="text-slate-400 text-sm leading-relaxed">循序渐进增加有氧活动，并维持力量与平衡能力。</p></article><article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-500/50"><i class="fa-solid fa-carrot text-2xl text-emerald-400 mb-5"></i><h3 class="font-bold text-lg mb-3">营养与饮食</h3><p class="text-slate-400 text-sm leading-relaxed">多样化摄入蔬果、全谷物和优质蛋白，减少超加工食品。</p></article><article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-500/50"><i class="fa-solid fa-moon text-2xl text-emerald-400 mb-5"></i><h3 class="font-bold text-lg mb-3">睡眠与节律</h3><p class="text-slate-400 text-sm leading-relaxed">保持规律作息，成年人通常需要每晚 7–9 小时睡眠。</p></article><article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-500/50"><i class="fa-solid fa-heart-pulse text-2xl text-emerald-400 mb-5"></i><h3 class="font-bold text-lg mb-3">心血管与代谢</h3><p class="text-slate-400 text-sm leading-relaxed">了解血压、血脂和血糖，结合个人风险安排筛查。</p></article><article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 hover:border-emerald-500/50"><i class="fa-solid fa-people-group text-2xl text-emerald-400 mb-5"></i><h3 class="font-bold text-lg mb-3">心理与社交</h3><p class="text-slate-400 text-sm leading-relaxed">管理压力、维持支持性关系和有意义的日常活动。</p></article></div><p class="text-slate-500 text-xs mt-5">科普内容并非个体化诊疗建议；慢性病患者应根据临床情况调整活动与饮食。</p></section><section id="guides" class="bg-slate-900/50 border-y border-slate-800 py-16"><div class="max-w-7xl mx-auto px-4"><h2 class="text-3xl font-bold mb-3">实用长寿指南</h2><p class="text-slate-400 mb-8">三个可以立即开始的习惯方向</p><div class="grid md:grid-cols-3 gap-5"><article class="bg-slate-900 border border-slate-800 rounded-xl p-6"><h3 class="text-lg font-bold text-emerald-400 mb-3">每周活动目标</h3><p class="text-sm text-slate-300">逐步接近每周至少 150 分钟中等强度有氧活动，并安排每周至少两天肌肉力量训练；从适合自己的活动量开始。</p></article><article class="bg-slate-900 border border-slate-800 rounded-xl p-6"><h3 class="text-lg font-bold text-emerald-400 mb-3">建立稳定的睡眠节律</h3><p class="text-sm text-slate-300">尽量保持固定的起床时间、优化睡眠环境。持续失眠或疑似睡眠呼吸暂停时应寻求专业评估。</p></article><article class="bg-slate-900 border border-slate-800 rounded-xl p-6"><h3 class="text-lg font-bold text-emerald-400 mb-3">关注可测量的健康指标</h3><p class="text-sm text-slate-300">根据年龄与个人风险，与医疗人员讨论血压、血脂、血糖等指标及适宜的筛查频率。</p></article></div></div></section><div id="science" class="max-w-7xl mx-auto px-4 pt-16"><p class="text-emerald-400 text-sm font-semibold">RESEARCH LIBRARY</p><h2 class="text-3xl font-bold mt-2">科学证据与前沿研究</h2><p class="text-slate-400 mt-2">以下保留 V3 的衰老机制、化合物和研究专题；早期研究不代表已证实能延长人类寿命。</p><nav class="flex flex-wrap gap-3 mt-5 text-sm"><a href="#mechanisms" class="underline text-emerald-400">衰老机制</a><a href="#compounds" class="underline text-emerald-400">药物研究</a><a href="#cancer-vaccines" class="underline text-emerald-400">肿瘤疫苗</a><a href="#roadmap" class="underline text-emerald-400">技术路线</a><a href="#trials" class="underline text-emerald-400">PubMed 文献</a></nav></div><section id="calculator" class="max-w-5xl mx-auto px-4 py-20"><div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-10"><p class="text-emerald-400 text-sm font-semibold mb-2">HEALTH HABITS CHECK</p><h2 class="text-3xl font-bold">五维健康习惯自评</h2><p class="text-slate-400 mt-3 mb-8">根据自填答案绘制习惯雷达图，并提供优先改善建议。分数仅是本站自评指标，<strong>不是生物年龄、临床风险评分或寿命预测</strong>。</p><div class="grid sm:grid-cols-2 gap-5" id="habitInputs"><label class="block"><span class="block text-sm font-semibold mb-2">运动与力量</span><select id="habit_exercise" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-sm text-white"><option value="100">每周 ≥150 分钟有氧运动，并有力量训练</option><option value="70">有一定规律运动，但未达到上述组合</option><option value="40">偶尔活动</option><option value="15">大部分时间久坐</option></select></label><label class="block"><span class="block text-sm font-semibold mb-2">营养与饮食</span><select id="habit_diet" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-sm text-white"><option value="100">经常摄入蔬果、全谷物和优质蛋白</option><option value="70">总体均衡，偶尔高糖高盐</option><option value="40">经常依赖外卖或加工食品</option><option value="15">长期饮食失衡</option></select></label><label class="block"><span class="block text-sm font-semibold mb-2">睡眠与节律</span><select id="habit_sleep" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-sm text-white"><option value="100">大多数夜晚睡眠充足且规律</option><option value="70">基本规律，偶有不足</option><option value="40">经常睡眠不足或作息不规律</option><option value="15">长期严重睡眠不足</option></select></label><label class="block"><span class="block text-sm font-semibold mb-2">代谢健康管理</span><select id="habit_metabolic" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-sm text-white"><option value="100">按适用建议了解并跟进血压、血脂、血糖</option><option value="70">了解部分指标，偶尔跟进</option><option value="40">很少关注相关指标</option><option value="15">完全不了解自身相关指标</option></select></label><label class="block"><span class="block text-sm font-semibold mb-2">心理与社交</span><select id="habit_social" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-sm text-white"><option value="100">有稳定支持关系与有效减压方式</option><option value="70">总体良好，偶有压力</option><option value="40">经常压力大或社交支持不足</option><option value="15">持续孤立或难以应对压力</option></select></label></div><button onclick="assessHabits()" class="mt-7 w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 rounded-lg">生成我的健康习惯报告</button><div id="habitResults" class="hidden mt-8 border-t border-slate-700 pt-8"><div class="grid md:grid-cols-2 gap-8 items-center"><div><p class="text-slate-400 text-sm">习惯自评平均分（非临床指标）</p><p id="habitScore" class="text-5xl font-extrabold text-emerald-400 my-3">--</p><p id="habitAdvice" class="text-slate-300 text-sm leading-relaxed"></p><p class="text-slate-500 text-xs mt-4">分数来自问卷选项的示意映射，不代表健康状况的医学测量。</p></div><div class="max-w-sm mx-auto w-full"><canvas id="habitRadar" width="350" height="350" aria-label="五维健康习惯雷达图" role="img"></canvas></div></div></div></div></section>    <!-- 模块一：衰老的 12 大生物学标志 -->
     <section id="mechanisms" class="max-w-7xl mx-auto px-4 py-20">
         <div class="text-center max-w-2xl mx-auto mb-10">
             <h2 class="text-3xl font-bold text-white">衰老的 12 大生物学标志</h2>
@@ -587,86 +522,6 @@
     </section>
 
     <!-- 模块五：简易生物学年龄与健康跨度雷达测算 -->
-    <section id="calculator" class="max-w-4xl mx-auto px-4 py-20 border-t border-slate-800">
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-2xl">
-            <div class="text-center mb-8">
-                <h2 class="text-2xl sm:text-3xl font-bold text-white">健康寿命与生活方式雷达测算</h2>
-                <p class="text-slate-400 text-sm mt-2">基于自填生活习惯的五维可视化科普工具；不能测量生物年龄、DNA 甲基化或个人疾病风险</p>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">实际日历年龄 (Chronological Age)</label>
-                    <input id="actualAge" type="number" value="35" min="18" max="100" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-emerald-500">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">每周中高强度运动 (含力量抗阻)</label>
-                    <select id="exercise" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-emerald-500">
-                        <option value="-3.5">≥150分钟 (规律力量+高强度间歇) (-3.5岁)</option>
-                        <option value="-1.5">60-150分钟中等强度运动 (-1.5岁)</option>
-                        <option value="0">偶尔轻度散步 (0岁)</option>
-                        <option value="2.5">长期久坐缺乏运动 (+2.5岁)</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">饮食结构与能量摄入模式</label>
-                    <select id="diet" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-emerald-500">
-                        <option value="-3.0">地中海饮食 / 控精碳 / 间歇限食 (-3.0岁)</option>
-                        <option value="-1.0">少油少糖、高膳食纤维均衡饮食 (-1.0岁)</option>
-                        <option value="0">普通家常饮食 (0岁)</option>
-                        <option value="3.5">高糖超加工食品 / 经常夜宵暴饮暴食 (+3.5岁)</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">昼夜节律与睡眠质量</label>
-                    <select id="sleep" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-emerald-500">
-                        <option value="-2.0">7-8.5小时高深度睡眠且节律稳定 (-2.0岁)</option>
-                        <option value="0">6-7小时或偶有熬夜 (0岁)</option>
-                        <option value="3.0">长期&lt;6小时 / 严重睡眠呼吸紊乱 (+3.0岁)</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">吸烟与饮酒暴露</label>
-                    <select id="toxic" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-emerald-500">
-                        <option value="-1.0">从不吸烟且滴酒不沾 (-1.0岁)</option>
-                        <option value="0">从不吸烟 / 极低频社交饮酒 (0岁)</option>
-                        <option value="2.0">规律饮酒或被动吸二手烟 (+2.0岁)</option>
-                        <option value="4.5">长期重度吸烟或酗酒 (+4.5岁)</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">慢性压力与心理复原力</label>
-                    <select id="stress" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-emerald-500">
-                        <option value="-1.5">擅长冥想/放松，心理压力极小 (-1.5岁)</option>
-                        <option value="0">中等压力，具备正常调节机制 (0岁)</option>
-                        <option value="2.5">长期重度高压/焦虑、易处于皮质醇亢进 (+2.5岁)</option>
-                    </select>
-                </div>
-            </div>
-
-            <button onclick="calculateBioAge()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:opacity-95 text-slate-950 font-extrabold py-3.5 rounded-lg transition shadow-lg shadow-emerald-500/25 flex items-center justify-center space-x-2">
-                <i class="fa-solid fa-calculator"></i>
-                <span>查看生活方式五维评估</span>
-            </button>
-
-            <!-- 测算结果与雷达图展示 -->
-            <div id="resultBox" class="mt-8 p-6 sm:p-8 bg-slate-800/80 rounded-xl border border-slate-700 hidden">
-                <div class="text-center mb-6">
-                    <div class="text-xs font-semibold text-slate-400 uppercase tracking-widest">生活方式示意指数（非生物年龄）</div>
-                    <div id="bioAgeValue" class="text-5xl font-black text-emerald-400 my-3">--</div>
-                    <div id="bioAgeDelta" class="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3"></div>
-                    <p id="bioAgeDesc" class="text-sm text-slate-300 max-w-xl mx-auto leading-relaxed"></p>
-                </div>
-
-                <!-- 雷达图容器 -->
-                <div class="pt-6 border-t border-slate-700/60 max-w-sm mx-auto">
-                    <div class="text-center text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">五维抗衰能力雷达评估</div>
-                    <canvas id="bioRadarChart" width="300" height="300"></canvas>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- 化合物详情抽屉/Modal -->
     <div id="compoundModal" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 flex items-center justify-center hidden px-4">
         <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
@@ -705,9 +560,9 @@
                 <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-xl">
                     <i class="fa-regular fa-envelope-open"></i>
                 </div>
-                <h3 class="text-xl font-bold text-white">订阅《衰老与长寿前沿速递》</h3>
+                <h3 class="text-xl font-bold text-white">订阅《BioSpan 健康长寿简报》</h3>
                 <p class="text-slate-400 text-xs leading-relaxed">
-                    每周精选 Nature / Cell 衰老生物学文献、肿瘤疫苗临床试验进度及前沿长寿科技指南。
+                    分享运动、营养、睡眠与代谢健康相关的循证指南，以及值得关注的长寿研究。
                 </p>
             </div>
             <div id="modalForm" class="mt-6 space-y-4">
@@ -875,96 +730,20 @@
             });
         }
 
-        let radarChartInstance = null;
-
-        function calculateBioAge() {
-            const actualAge = parseFloat(document.getElementById('actualAge').value);
-            const exercise = parseFloat(document.getElementById('exercise').value);
-            const diet = parseFloat(document.getElementById('diet').value);
-            const sleep = parseFloat(document.getElementById('sleep').value);
-            const toxic = parseFloat(document.getElementById('toxic').value);
-            const stress = parseFloat(document.getElementById('stress').value);
-
-            if (isNaN(actualAge) || actualAge < 18 || actualAge > 100) {
-                alert('请输入有效的年龄范围（18 - 100岁）！');
-                return;
-            }
-
-            const totalDelta = exercise + diet + sleep + toxic + stress;
-            const estimatedBioAge = Math.max(1, actualAge + totalDelta).toFixed(1);
-            const diff = (estimatedBioAge - actualAge).toFixed(1);
-
-            const resultBox = document.getElementById('resultBox');
-            const bioAgeValue = document.getElementById('bioAgeValue');
-            const bioAgeDelta = document.getElementById('bioAgeDelta');
-            const bioAgeDesc = document.getElementById('bioAgeDesc');
-
-            bioAgeValue.innerText = `${Math.max(0, Math.min(100, Math.round(70 - Number(totalDelta) * 3)))}/100`;
-
-            if (diff < 0) {
-                bioAgeDelta.className = 'inline-block px-3 py-1 rounded-full text-xs font-bold mb-3 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
-                bioAgeDelta.innerText = `相对有利的生活习惯组合`;
-                bioAgeDesc.innerHTML = `🌟 这些习惯通常有利于长期健康。此分数仅用于展示问卷结果，不代表真实的衰老速度。`;
-            } else if (diff > 0) {
-                bioAgeDelta.className = 'inline-block px-3 py-1 rounded-full text-xs font-bold mb-3 bg-rose-500/20 text-rose-400 border border-rose-500/30';
-                bioAgeDelta.innerText = `部分生活习惯值得改善`;
-                bioAgeDesc.innerHTML = `建议优先关注规律活动、充足睡眠和均衡饮食；本工具无法判断炎症水平或代谢疾病。`;
-            } else {
-                bioAgeDelta.className = 'inline-block px-3 py-1 rounded-full text-xs font-bold mb-3 bg-slate-700 text-slate-300 border border-slate-600';
-                bioAgeDelta.innerText = `生活习惯处于示意基线`;
-                bioAgeDesc.innerHTML = `本工具仅供生活方式自我回顾，不是临床检测或诊断。`;
-            }
-
-            const scoreExercise = Math.max(20, Math.min(100, 80 - exercise * 15));
-            const scoreDiet = Math.max(20, Math.min(100, 80 - diet * 15));
-            const scoreSleep = Math.max(20, Math.min(100, 80 - sleep * 15));
-            const scoreToxic = Math.max(20, Math.min(100, 80 - toxic * 12));
-            const scoreStress = Math.max(20, Math.min(100, 80 - stress * 15));
-
-            resultBox.classList.remove('hidden');
-
-            const ctx = document.getElementById('bioRadarChart').getContext('2d');
-            if (radarChartInstance) {
-                radarChartInstance.destroy();
-            }
-
-            radarChartInstance = new Chart(ctx, {
-                type: 'radar',
-                data: {
-                    labels: ['运动抗阻', '代谢饮食', '睡眠节律', '毒素规避', '压力韧性'],
-                    datasets: [{
-                        label: '抗衰能力评分',
-                        data: [scoreExercise, scoreDiet, scoreSleep, scoreToxic, scoreStress],
-                        backgroundColor: 'rgba(16, 185, 129, 0.25)',
-                        borderColor: '#10b981',
-                        borderWidth: 2,
-                        pointBackgroundColor: '#34d399',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: '#10b981'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: true,
-                    scales: {
-                        r: {
-                            min: 0,
-                            max: 100,
-                            ticks: { display: false, stepSize: 20 },
-                            grid: { color: 'rgba(148, 163, 184, 0.15)' },
-                            angleLines: { color: 'rgba(148, 163, 184, 0.15)' },
-                            pointLabels: {
-                                color: '#94a3b8',
-                                font: { size: 11, weight: 'bold' }
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: { display: false }
-                    }
-                }
-            });
+        let habitRadarInstance = null;
+        function assessHabits() {
+            const ids = ['exercise','diet','sleep','metabolic','social'];
+            const names = ['运动','营养','睡眠','代谢管理','心理社交'];
+            const tips = ['从短时间步行开始，逐步增加有氧与力量训练。','尝试增加蔬菜、全谷物及优质蛋白，减少超加工食品。','优先建立规律起床时间，改善睡眠环境。','按个人情况与医疗人员讨论血压、血脂、血糖的检查和随访。','安排放松活动并保持与亲友的联系；长期困扰可寻求支持。'];
+            const scores = ids.map(id => Number(document.getElementById('habit_' + id).value));
+            const avg = Math.round(scores.reduce((a,b)=>a+b,0)/scores.length);
+            const weakest = scores.indexOf(Math.min(...scores));
+            document.getElementById('habitScore').textContent = avg + '/100';
+            document.getElementById('habitAdvice').textContent = '目前最值得关注的习惯领域：' + names[weakest] + '。' + tips[weakest] + ' 建议一次只改变一两个习惯，并持续观察。';
+            document.getElementById('habitResults').classList.remove('hidden');
+            if (typeof Chart === 'undefined') { document.getElementById('habitAdvice').textContent += '（图表库未加载，分数与建议仍可查看。）'; return; }
+            if (habitRadarInstance) habitRadarInstance.destroy();
+            habitRadarInstance = new Chart(document.getElementById('habitRadar'), {type:'radar',data:{labels:names,datasets:[{data:scores,backgroundColor:'rgba(16,185,129,.2)',borderColor:'#34d399',pointBackgroundColor:'#34d399',borderWidth:2}]},options:{responsive:true,scales:{r:{min:0,max:100,ticks:{display:false},grid:{color:'rgba(148,163,184,.2)'},angleLines:{color:'rgba(148,163,184,.2)'},pointLabels:{color:'#cbd5e1'}}},plugins:{legend:{display:false}}}});
         }
 
         function openModal() {
