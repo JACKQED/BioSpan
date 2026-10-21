@@ -29,7 +29,33 @@
         }
       :focus-visible {outline: 2px solid #34d399;outline-offset:3px;}
          @media (prefers-reduced-motion: reduce) { *,*::before,*::after {scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important;} }
-     </style>
+ 
+        /* BioSpan V4.2 — Ocean & Emerald visual refresh */
+        :root { color-scheme: dark; --bs-base:#0b1730; --bs-surface:#132a43; --bs-border:#29445e; --bs-mint:#34d399; }
+        body.bg-slate-950 { background:linear-gradient(180deg,#0a1930 0%,#0b1730 46%,#10233a 100%) fixed; }
+        .gradient-bg { background:radial-gradient(ellipse at 22% 32%,rgba(16,185,129,.20),transparent 47%),radial-gradient(ellipse at 82% 36%,rgba(56,189,248,.19),transparent 50%),linear-gradient(115deg,#0d2437 0%,#142c49 55%,#182b50 100%); }
+        body > nav.sticky { background:rgba(10,27,46,.92)!important; border-bottom-color:#2b485e!important; box-shadow:0 5px 22px rgba(0,0,0,.12); }
+        .bg-slate-900 { background-color:#13283f!important; }
+        .bg-slate-900\/50 { background-color:rgba(20,46,68,.55)!important; }
+        .bg-slate-900\/80 { background-color:rgba(19,40,63,.84)!important; }
+        .bg-slate-800 { background-color:#20374e!important; }
+        .border-slate-800 { border-color:#2c435c!important; }
+        .border-slate-700 { border-color:#3a536a!important; }
+        .text-slate-400 { color:#b3c6d7!important; }
+        .text-slate-500 { color:#9bb0c4!important; }
+        .text-slate-300 { color:#d8e5ef!important; }
+        article.bg-slate-900, .rounded-2xl.bg-slate-900, .rounded-xl.bg-slate-900 {box-shadow:0 12px 28px rgba(1,10,26,.18); transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;}
+        article.bg-slate-900:hover {transform:translateY(-4px);box-shadow:0 18px 34px rgba(1,10,26,.3);border-color:rgba(52,211,153,.6)!important;}
+        .bg-emerald-500 { background-color:#20c997!important; }
+        .hover\:bg-emerald-400:hover { background-color:#55e4b5!important; }
+        select, input, textarea {accent-color:#20c997;}
+        #pillars article:nth-child(2) i, #pillars article:nth-child(4) i {color:#67d5f8!important;}
+        #pillars article:nth-child(3) i {color:#b4a3ff!important;}
+        #pillars article:nth-child(5) i {color:#f5c67a!important;}
+        #pillars article {background:linear-gradient(150deg,#18324a,#12253c)!important;}
+        #calculator > div {background:linear-gradient(155deg,#193149,#11243c)!important;}
+        @media (prefers-reduced-motion:reduce){article.bg-slate-900:hover{transform:none;}}
+    </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-emerald-500 selection:text-slate-950">
 
