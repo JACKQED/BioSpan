@@ -27,7 +27,9 @@
             border-color: rgb(16 185 129 / 0.5);
             color: rgb(52 211 153);
         }
-    </style>
+      :focus-visible {outline: 2px solid #34d399;outline-offset:3px;}
+         @media (prefers-reduced-motion: reduce) { *,*::before,*::after {scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important;} }
+     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-emerald-500 selection:text-slate-950">
 
@@ -110,16 +112,16 @@
                 <div class="text-xs text-slate-400 mt-1 font-medium">核心衰老生物标志</div>
             </div>
             <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-xl backdrop-blur text-center shadow-lg">
-                <div class="text-3xl font-extrabold text-rose-400">87.5%</div>
-                <div class="text-xs text-slate-400 mt-1 font-medium">胰腺癌疫苗应答者长期存活率</div>
+                <div class="text-3xl font-extrabold text-rose-400">7/8</div>
+                <div class="text-xs text-slate-400 mt-1 font-medium">早期研究应答者样本（非总体疗效）</div>
             </div>
             <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-xl backdrop-blur text-center shadow-lg">
-                <div class="text-3xl font-extrabold text-cyan-400">300+</div>
-                <div class="text-xs text-slate-400 mt-1 font-medium">追踪中临床试验</div>
+                <div class="text-3xl font-extrabold text-cyan-400">PubMed</div>
+                <div class="text-xs text-slate-400 mt-1 font-medium">文献研究入口</div>
             </div>
             <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-xl backdrop-blur text-center shadow-lg">
-                <div class="text-3xl font-extrabold text-purple-400">100%</div>
-                <div class="text-xs text-slate-400 mt-1 font-medium">同行评审文献背书</div>
+                <div class="text-3xl font-extrabold text-purple-400">循证</div>
+                <div class="text-xs text-slate-400 mt-1 font-medium">研究证据分级解读</div>
             </div>
         </div>
     </section>
@@ -244,10 +246,10 @@
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
                 <div>
                     <h2 class="text-3xl font-bold text-white">抗衰老靶点与化合物数据库</h2>
-                    <p class="text-slate-400 mt-2 text-sm">点击任意化合物行，即可调出给药方案、副作用风险与 ITP 研究原始文献详情。</p>
+                    <p class="text-slate-400 mt-2 text-sm">点击化合物查看研究信息与风险说明；实验性抗衰干预不等于已获批的延寿治疗。</p>
                 </div>
                 <div class="text-xs bg-slate-800 px-3 py-1.5 rounded-lg text-slate-400 border border-slate-700">
-                    <i class="fa-solid fa-circle-info mr-1 text-emerald-400"></i> 点击表格行展开临床剂量与安全性分析
+                    <i class="fa-solid fa-circle-info mr-1 text-emerald-400"></i> 研究信息不构成个人用药建议
                 </div>
             </div>
 
@@ -260,8 +262,8 @@
                 <div>
                     <select id="compoundPhaseFilter" onchange="filterCompoundsTable()" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-300 focus:outline-none focus:border-emerald-500">
                         <option value="all">所有临床阶段 (全部)</option>
-                        <option value="Phase III">Phase III / FDA Approved</option>
-                        <option value="Phase II">Phase II / I</option>
+                        <option value="Phase III">Phase III / 已获批其他适应症</option>
+                        <option value="Phase II">Phase II / I（特定研究）</option>
                         <option value="Preclinical">临床前阶段 (Preclinical)</option>
                     </select>
                 </div>
@@ -327,7 +329,7 @@
                             </td>
                             <td class="px-6 py-4"><span class="bg-yellow-950 text-yellow-300 px-2 py-0.5 rounded text-xs">α-葡萄糖苷酶</span></td>
                             <td class="px-6 py-4 text-emerald-400 font-medium">+22% 雄鼠寿命 (ITP)</td>
-                            <td class="px-6 py-4 text-emerald-400"><span class="px-2 py-0.5 bg-emerald-500/10 rounded border border-emerald-500/20 font-bold">FDA Approved</span></td>
+                            <td class="px-6 py-4 text-emerald-400"><span class="px-2 py-0.5 bg-emerald-500/10 rounded border border-emerald-500/20 font-bold">已获批降糖适应症</span></td>
                             <td class="px-6 py-4 text-emerald-400 text-xs font-semibold hover:underline">查看临床方案 →</td>
                         </tr>
                         <tr onclick="showCompoundDetail('osk')" class="hover:bg-slate-800/60 cursor-pointer transition">
@@ -389,7 +391,7 @@
                 
                 <div class="pt-5 mt-6 border-t border-slate-800 flex items-center justify-between text-xs">
                     <span class="text-slate-500">PMID: 37165196</span>
-                    <a href="https://pubmed.ncbi.nlm.nih.gov/37165196/" target="_blank" class="text-rose-400 hover:text-rose-300 font-semibold flex items-center">
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/37165196/" target="_blank" rel="noopener noreferrer" class="text-rose-400 hover:text-rose-300 font-semibold flex items-center">
                         查看 Nature 原文 <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
                     </a>
                 </div>
@@ -419,7 +421,7 @@
                 
                 <div class="pt-5 mt-6 border-t border-slate-800 flex items-center justify-between text-xs">
                     <span class="text-slate-500">Nature Medicine 2025</span>
-                    <a href="https://pubmed.ncbi.nlm.nih.gov/38195744/" target="_blank" class="text-rose-400 hover:text-rose-300 font-semibold flex items-center">
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/38195744/" target="_blank" rel="noopener noreferrer" class="text-rose-400 hover:text-rose-300 font-semibold flex items-center">
                         查看临床论文 <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
                     </a>
                 </div>
@@ -430,7 +432,7 @@
                 <div>
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-xs font-bold px-2.5 py-1 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">通用长寿/肿瘤疫苗</span>
-                        <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold">Phase II / III 探索</span>
+                        <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold">Phase II / I（特定研究）II 探索</span>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition">mRNA-4157 (V940) & hTERT</h3>
                     <p class="text-slate-400 text-xs mb-4"><strong>代表机构：</strong>Moderna / 默沙东 (Merck) / 国际多中心</p>
@@ -449,7 +451,7 @@
                 
                 <div class="pt-5 mt-6 border-t border-slate-800 flex items-center justify-between text-xs">
                     <span class="text-slate-500">ASCO / ESMO 顶会发布</span>
-                    <a href="https://pubmed.ncbi.nlm.nih.gov/38242125/" target="_blank" class="text-purple-400 hover:text-purple-300 font-semibold flex items-center">
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/38242125/" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:text-purple-300 font-semibold flex items-center">
                         查看临床综述 <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
                     </a>
                 </div>
@@ -589,7 +591,7 @@
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-2xl">
             <div class="text-center mb-8">
                 <h2 class="text-2xl sm:text-3xl font-bold text-white">健康寿命与生活方式雷达测算</h2>
-                <p class="text-slate-400 text-sm mt-2">基于表观遗传生活干预算法评估生物学年龄与 5 维抗衰短板（仅供科普参考）</p>
+                <p class="text-slate-400 text-sm mt-2">基于自填生活习惯的五维可视化科普工具；不能测量生物年龄、DNA 甲基化或个人疾病风险</p>
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
@@ -644,13 +646,13 @@
 
             <button onclick="calculateBioAge()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:opacity-95 text-slate-950 font-extrabold py-3.5 rounded-lg transition shadow-lg shadow-emerald-500/25 flex items-center justify-center space-x-2">
                 <i class="fa-solid fa-calculator"></i>
-                <span>运行生物学年龄与表观遗传测算</span>
+                <span>查看生活方式五维评估</span>
             </button>
 
             <!-- 测算结果与雷达图展示 -->
             <div id="resultBox" class="mt-8 p-6 sm:p-8 bg-slate-800/80 rounded-xl border border-slate-700 hidden">
                 <div class="text-center mb-6">
-                    <div class="text-xs font-semibold text-slate-400 uppercase tracking-widest">预估生物学表型年龄 (Estimated Biological Age)</div>
+                    <div class="text-xs font-semibold text-slate-400 uppercase tracking-widest">生活方式示意指数（非生物年龄）</div>
                     <div id="bioAgeValue" class="text-5xl font-black text-emerald-400 my-3">--</div>
                     <div id="bioAgeDelta" class="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3"></div>
                     <p id="bioAgeDesc" class="text-sm text-slate-300 max-w-xl mx-auto leading-relaxed"></p>
@@ -694,7 +696,7 @@
     </footer>
 
     <!-- 订阅弹窗组件 (Modal) -->
-    <div id="subscribeModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden px-4">
+    <div id="subscribeModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden px-4" role="dialog" aria-modal="true" aria-label="订阅科学简报">
         <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition">
                 <i class="fa-solid fa-xmark text-lg"></i>
@@ -717,9 +719,10 @@
                     立即免费订阅
                 </button>
             </div>
+            <p id="subscriptionError" role="alert" class="text-rose-400 text-xs mt-2 hidden"></p>
             <div id="modalSuccess" class="mt-6 text-center space-y-2 hidden">
                 <div class="text-emerald-400 text-sm font-semibold">🎉 订阅成功！</div>
-                <p class="text-slate-400 text-xs">欢迎加入长寿科研社区，首期前沿周报已准备就绪。</p>
+                <p class="text-slate-400 text-xs">欢迎加入长寿科研社区，提交已被表单服务接受；后续简报发送取决于站点运营配置。</p>
                 <button onclick="closeModal()" class="mt-3 text-xs text-slate-400 hover:text-white underline">关闭窗口</button>
             </div>
         </div>
@@ -822,7 +825,7 @@
 
                     <div class="pt-4 border-t border-slate-800 flex justify-between items-center text-xs">
                         <span class="text-slate-500">PMID 关键文献: ${data.pmid}</span>
-                        <a href="https://pubmed.ncbi.nlm.nih.gov/${data.pmid}/" target="_blank" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-4 py-2 rounded-lg transition flex items-center">
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/${data.pmid}/" target="_blank" rel="noopener noreferrer" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-4 py-2 rounded-lg transition flex items-center">
                             PubMed 原始论文 <i class="fa-solid fa-arrow-up-right-from-square ml-1.5 text-[10px]"></i>
                         </a>
                     </div>
@@ -882,8 +885,8 @@
             const toxic = parseFloat(document.getElementById('toxic').value);
             const stress = parseFloat(document.getElementById('stress').value);
 
-            if (isNaN(actualAge) || actualAge < 10 || actualAge > 120) {
-                alert('请输入有效的年龄范围（10 - 120岁）！');
+            if (isNaN(actualAge) || actualAge < 18 || actualAge > 100) {
+                alert('请输入有效的年龄范围（18 - 100岁）！');
                 return;
             }
 
@@ -896,20 +899,20 @@
             const bioAgeDelta = document.getElementById('bioAgeDelta');
             const bioAgeDesc = document.getElementById('bioAgeDesc');
 
-            bioAgeValue.innerText = `${estimatedBioAge} 岁`;
+            bioAgeValue.innerText = `${Math.max(0, Math.min(100, Math.round(70 - Number(totalDelta) * 3)))}/100`;
 
             if (diff < 0) {
                 bioAgeDelta.className = 'inline-block px-3 py-1 rounded-full text-xs font-bold mb-3 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
-                bioAgeDelta.innerText = `表观遗传衰老延缓：比实际年轻 ${Math.abs(diff)} 岁`;
-                bioAgeDesc.innerHTML = `🌟 <strong>状态极佳：</strong> 您的生活方式显著减缓了 DNA 甲基化与端粒损耗速率。维持当前的阻力训练与节律管理，可极大拓展健康跨度。`;
+                bioAgeDelta.innerText = `相对有利的生活习惯组合`;
+                bioAgeDesc.innerHTML = `🌟 这些习惯通常有利于长期健康。此分数仅用于展示问卷结果，不代表真实的衰老速度。`;
             } else if (diff > 0) {
                 bioAgeDelta.className = 'inline-block px-3 py-1 rounded-full text-xs font-bold mb-3 bg-rose-500/20 text-rose-400 border border-rose-500/30';
-                bioAgeDelta.innerText = `表观遗传衰老加速：比实际偏大 ${diff} 岁`;
-                bioAgeDesc.innerHTML = `⚠️ <strong>存在加速风险：</strong> 系统性慢性炎症或代谢负担正在加速机体老化。优先改善睡眠节律、降低精制糖超加工摄入，可带来显著的生物学逆转空间。`;
+                bioAgeDelta.innerText = `部分生活习惯值得改善`;
+                bioAgeDesc.innerHTML = `建议优先关注规律活动、充足睡眠和均衡饮食；本工具无法判断炎症水平或代谢疾病。`;
             } else {
                 bioAgeDelta.className = 'inline-block px-3 py-1 rounded-full text-xs font-bold mb-3 bg-slate-700 text-slate-300 border border-slate-600';
-                bioAgeDelta.innerText = `生物年龄与日历年龄持平`;
-                bioAgeDesc.innerHTML = `您的生物机能处于标准基线水平。若想实现健康跨度跃迁，可逐步探索间歇断食、Zone 2 有氧与规律力量训练。`;
+                bioAgeDelta.innerText = `生活习惯处于示意基线`;
+                bioAgeDesc.innerHTML = `本工具仅供生活方式自我回顾，不是临床检测或诊断。`;
             }
 
             const scoreExercise = Math.max(20, Math.min(100, 80 - exercise * 15));
@@ -974,26 +977,34 @@
         }
         async function submitSubscription(e) {
             if (e) e.preventDefault();
-            const emailInput = document.getElementById('subEmail');
-            const email = emailInput.value.trim();
-
-            if (!email || !email.includes('@')) {
-                alert('请输入有效的电子邮箱地址！');
+            const input = document.getElementById('subEmail');
+            const email = input.value.trim();
+            const error = document.getElementById('subscriptionError');
+            error.classList.add('hidden');
+            if (!input.checkValidity() || !email) {
+                error.textContent = '请输入有效的邮箱地址。';
+                error.classList.remove('hidden');
                 return;
             }
-
-            document.getElementById('modalForm').classList.add('hidden');
-            document.getElementById('modalSuccess').classList.remove('hidden');
-            emailInput.value = '';
-
+            const button = document.querySelector('#modalForm button');
+            button.disabled = true;
+            button.textContent = '正在提交…';
             try {
-                await fetch('https://formspree.io/f/xbjnqovk', {
+                const response = await fetch('https://formspree.io/f/xbjnqovk', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email: email, site: 'BioSpan Newsletter' })
+                    headers: {'Content-Type':'application/json','Accept':'application/json'},
+                    body: JSON.stringify({email, site:'BioSpan Newsletter'})
                 });
+                if (!response.ok) throw new Error('HTTP ' + response.status);
+                document.getElementById('modalForm').classList.add('hidden');
+                document.getElementById('modalSuccess').classList.remove('hidden');
+                input.value = '';
             } catch (err) {
-                console.log('订阅已在本地确认');
+                error.textContent = '订阅未确认成功，请稍后重试。';
+                error.classList.remove('hidden');
+            } finally {
+                button.disabled = false;
+                button.textContent = '立即免费订阅';
             }
         }
     </script>
